@@ -16,11 +16,17 @@
 
       <v-card-text class="white--text pt-0" style="width: 100vw;margin-top: 20px;text-align: center;">
        <v-row style="text-align: center !important;">
-         <v-col style="width: 200vw; text-align: left;">
+         
+         <v-col v-if="!isMobile" style="width: 200vw; text-align: left;">
          </v-col>
          <v-col  v-for="(item,id) in items" :key="id" style="text-align: left;">
-           <span style="font-weight: bold;">{{item.title}}</span>
-           <li v-for="(sitem,id) in item.list" :key="id">{{sitem.title}}&nbsp;&nbsp;<v-icon small>{{sitem.icon}}</v-icon></li>
+           <span class="footerTitle">{{item.title}}</span>
+           <!--<li v-for="(sitem,id) in item.list" :key="id">{{sitem.title}}&nbsp;&nbsp;<v-icon small>{{sitem.icon}}</v-icon></li>-->
+           <div v-for="(sitem,id) in item.list" :key="id" class="footerLink">
+             <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
+             &nbsp;{{sitem.title}}&nbsp;&nbsp;
+             <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+            </div>
          </v-col>
 
 
@@ -41,7 +47,7 @@
             class="white--text"
             icon
           >
-            <v-icon size="24px">
+            <v-icon :size="isMobile?'16px':'24px'">
               {{ icon }}
             </v-icon>
           </v-btn>
@@ -57,11 +63,15 @@
 </template>
 
 <script  lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 
 @Component
 export default class Footer extends Vue {
+
+  @Prop()
+  public isMobile! :boolean;
+
     public icons = [
         'mdi-facebook',
         'mdi-twitter',
@@ -149,5 +159,13 @@ export default class Footer extends Vue {
 </script>
 
 <style>
-
+.footerLink{
+  position: relative;
+  left: 4px;
+  font-size: var(--footer-link-size);
+}
+.footerTitle{
+  font-weight: bold;
+  font-size: var(--footer-title-size);
+}
 </style>

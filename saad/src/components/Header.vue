@@ -37,7 +37,7 @@
       </v-app-bar-nav-icon>
      <v-img
           alt="Zahn Bild"
-          class="shrink mr-2"
+          class="shrink mr-2 d-none d-sm-flex"
           contain
           src="../assets/tooth.png"
           transition="scale-transition"
@@ -54,7 +54,7 @@
 
       
 
-      <v-app-bar-title style="transition-duration: 1000ms !important;" >Zahnarzt Praxis Kundakji &amp; Partner</v-app-bar-title>
+      <v-app-bar-title :class="isMobile?'bar-title-mobile':''" style="transition-duration: 1000ms !important;" >Zahnarzt Praxis Kundakji &amp; Partner</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
@@ -124,19 +124,23 @@
 </template>
 
 <script  lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 
 
 @Component
 export default class Header extends Vue {
+  @Prop()
+  public isMobile! :boolean;
+
   public openedMenu!:string;
         menuOpened(title:string){
          // this.$log.info("Menu is opened : " + title );
           this.openedMenu=title;
         }
         handleAction(action?:string){
-          console.log("Handle Action is called");
+          console.log("Handle Action is called for " + action);
         }
+        
 
 
 public menus=[            {
@@ -195,10 +199,8 @@ public menus=[            {
     text-overflow: clip !important;
     overflow: visible !important;
     width: 600px;
-    font-size: 24px !important ;
+    font-size: var(--app-bar-title-size) !important ;
     text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
-    
-
 }
 .v-app-bar-title__placeholder {
     top: 10px;
@@ -210,10 +212,11 @@ public menus=[            {
     text-overflow: clip !important;
     overflow: visible !important;
     width: 600px;
-    font-size: 24px !important ;
+    font-size: var(--app-bar-title-size) !important ;
     text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
-    
-    
+}
 
+.bar-title-mobile{
+  font-size: 18px !important ;
 }
 </style>
