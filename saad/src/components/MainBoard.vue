@@ -1,5 +1,6 @@
 <template>
-    <v-container>
+    <v-container style="text-align: center;">
+        <h1 class="section-title">Das Team der Zahnarztpraxis</h1>
     <v-card
         id="pageBody"
         class="mx-auto"

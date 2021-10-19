@@ -22,11 +22,20 @@
          <v-col  v-for="(item,id) in items" :key="id" style="text-align: left;">
            <span class="footerTitle">{{item.title}}</span>
            <!--<li v-for="(sitem,id) in item.list" :key="id">{{sitem.title}}&nbsp;&nbsp;<v-icon small>{{sitem.icon}}</v-icon></li>-->
-           <div v-for="(sitem,id) in item.list" :key="id" class="footerLink">
-             <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
-             &nbsp;{{sitem.title}}&nbsp;&nbsp;
-             <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+           
+            <div v-for="(sitem,id) in item.list" :key="id" class="footerLink">
+              <a v-if="sitem.url" :href="sitem.url" target="_blank" >
+                <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
+                &nbsp;{{sitem.title}}&nbsp;&nbsp;
+                <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+              </a>
+              <div v-else >
+                <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
+                &nbsp;{{sitem.title}}&nbsp;&nbsp;
+                <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+              </div>
             </div>
+            
          </v-col>
 
 
@@ -37,10 +46,10 @@
 
       <v-card-text >
        <v-row>
-         <v-col>
-            ©  {{ new Date().getFullYear() }} — <strong>Kundakji &amp; Partner</strong>
+         <v-col style="font-size: var(--footer-link-size);vertical-align: middle !important;" >
+           <span style="height: 100%;position:relative;top: 8px;"> ©  {{ new Date().getFullYear() }} — <strong>Kundakji &amp; Partner</strong></span>
          </v-col>
-         <v-col>
+         <v-col >
           <v-btn
             v-for="icon in icons"
             :key="icon"
@@ -144,7 +153,8 @@ export default class Footer extends Vue {
           list: [
             {
               title: 'Standort',
-              icon: 'mdi-map-marker'
+              icon: 'mdi-map-marker',
+              url: 'https://www.google.com/maps/place/Zahnarzt+Praxis+Kundakji+%26+Partner/@49.9999337,8.2611765,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x22cbe0caf65b9e9!8m2!3d49.9999649!4d8.2633183'
             },
             {
               title: 'Öffnungszeiten',
@@ -162,7 +172,13 @@ export default class Footer extends Vue {
 .footerLink{
   position: relative;
   left: 4px;
+  
   font-size: var(--footer-link-size);
+}
+.footerLink a{
+  color: white !important;
+  text-decoration: none;
+
 }
 .footerTitle{
   font-weight: bold;

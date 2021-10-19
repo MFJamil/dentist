@@ -94,7 +94,9 @@ export class ThemeHandler{
             name: 'default',
             dark: false,
             props:[
-                { name:'--app-bar-title-size'        ,value:'24px'},
+                { name:'--app-bar-title-size'              ,value:'24px'},
+                { name:'--app-bar-title-compressed-size'   ,value:'24px'},
+                { name:'--app-bar-title-left'              ,value:'52px'},
                 { name:'--footer-link-size'          ,value:'12px'},
                 { name:'--footer-title-size'         ,value:'14px'},
 
@@ -152,7 +154,10 @@ export class ThemeHandler{
             name: 'mobile',
             dark: false,
             props:[
-                { name:'--app-bar-title-size'        ,value:'18px'},
+                { name:'--app-bar-title-size'              ,value:'18px'},
+                { name:'--app-bar-title-compressed-size'   ,value:'16px'},
+                { name:'--app-bar-title-left'              ,value:'10px'},
+
                 { name:'--footer-link-size'          ,value:'10px'},
                 { name:'--footer-title-size'         ,value:'12px'},
 

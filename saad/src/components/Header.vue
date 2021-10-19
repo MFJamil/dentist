@@ -193,6 +193,7 @@ public menus=[            {
 
 <style>
 .v-app-bar-title__content {
+    left: var(--app-bar-title-left);
     margin-bottom: .5rem;
     font-family: poppins,sans-serif;
     font-weight: 700 !important;
@@ -204,6 +205,7 @@ public menus=[            {
     text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
 }
 .v-app-bar-title__placeholder {
+    
     top: 10px;
     position: relative;
     margin-bottom: .5rem;
