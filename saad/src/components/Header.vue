@@ -15,8 +15,9 @@
          Mo.Di.Do (9 - 13) + (15 - 18)  |  Mi. (9 - 14:30) | Fr. (8 - 13)
         </div>
          <v-spacer></v-spacer>
-        <v-icon>mdi-phone</v-icon>
+        <a href="tel:06131229816"><v-icon>mdi-phone</v-icon></a>
         06131-229816
+         
         <v-spacer></v-spacer>
         
       </v-system-bar>

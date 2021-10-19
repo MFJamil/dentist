@@ -2,9 +2,12 @@
 <!-- App.vue -->
 <!-- base color 011838 -->
 <v-app>
+  <v-expand-x-transition>
   <Header :isMobile="isOnMobile" />
+  </v-expand-x-transition>
   <!-- Sizes your content based upon application components -->
   <v-sheet id="pageBody" class="overflow-y-auto" max-height="100vh" style="overflow-x: hidden;">
+    <v-expand-x-transition>
   <v-main >
     
       <!-- Provides the application the proper gutter -->
@@ -15,6 +18,7 @@
       </v-container>
    
   </v-main>
+    </v-expand-x-transition>
 <Footer  :isMobile="isOnMobile" />
 </v-sheet>
 
