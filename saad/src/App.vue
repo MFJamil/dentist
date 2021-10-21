@@ -46,7 +46,7 @@ export default class App extends Vue{
     console.log("Screen Size : " + webUtils.screenSize(this));
     console.log("Is Mobile   : " + webUtils.isMobile(this));
     this.isOnMobile = webUtils.isMobile(this);
-    themHandler.activateTheme(this.isOnMobile,false);
+    themHandler.activateTheme(this.isOnMobile,false,'ar',this);
   }
 }
 </script>

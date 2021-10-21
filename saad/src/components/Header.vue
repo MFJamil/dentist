@@ -33,17 +33,16 @@
       scroll-threshold="500"
     >
     <v-app-bar-nav-icon
-        @click="$emit('toggel-side');"
+        @click="switchLang();"
       > 
       </v-app-bar-nav-icon>
      <v-img
           alt="Zahn Bild"
-          class="shrink mr-2 d-none d-sm-flex"
+          class="shrink mr-2 d-none d-sm-flex toothIcon"
           contain
           src="../assets/tooth.png"
           transition="scale-transition"
-          style="position:fixed;right:20px;bottom:10px;"
-          width="40"
+          
         />
 
       <template v-slot:img="{ props }">
@@ -55,8 +54,8 @@
 
       
 
-      <v-app-bar-title :class="isMobile?'bar-title-mobile':''" style="transition-duration: 1000ms !important;" >Zahnarzt Praxis Kundakji &amp; Partner</v-app-bar-title>
-
+      <!--<v-app-bar-title :class="isMobile?'bar-title-mobile':''" style="transition-duration: 1000ms !important;">Zahnarzt Praxis Kundakji &amp; Partner</v-app-bar-title>-->
+      <v-app-bar-title :class="isMobile?'bar-title-mobile':''" style="transition-duration: 1000ms !important;">{{ $i18n.t('appTitle') }}</v-app-bar-title>
       <v-spacer></v-spacer>
 
       <v-btn icon>
@@ -92,7 +91,7 @@
                   
                   
                 >
-                  {{menu.title}}
+                  {{ $i18n.t(menu.title)}}
                 </v-btn>
               </template>
               <v-list dense>
@@ -126,13 +125,13 @@
 
 <script  lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-
+import themHandler from '../ThemeHandler';
 
 @Component
 export default class Header extends Vue {
   @Prop()
   public isMobile! :boolean;
-
+  public lang = "de";
   public openedMenu!:string;
         menuOpened(title:string){
          // this.$log.info("Menu is opened : " + title );
@@ -142,11 +141,14 @@ export default class Header extends Vue {
           console.log("Handle Action is called for " + action);
         }
         
-
+  public switchLang(){
+    themHandler.activateTheme(false,false,this.lang,this);
+    this.lang = this.lang==='de'?'ar':'de'; 
+  }
 
 public menus=[            {
     id: 'Praxis',
-    title: 'Praxis',
+    title: 'mnuPraxis',
     subMenu: [
      {action: '',title: 'Ärtzte',icon:'mdi-medical-bag'},
      {action: '',title: 'Team'  ,icon:'mdi-account-multiple'},
@@ -156,7 +158,7 @@ public menus=[            {
    },
    {
     id: 'Leistungen',
-    title: 'Leistungen',
+    title: 'mnuLeistungen',
     subMenu: [
      {action: '',title: 'Implantologie', icon:'mdi-account-wrench'},
      {action: '',title: 'Chirurgische Leistungen', icon:'mdi-account-wrench'},
@@ -172,7 +174,7 @@ public menus=[            {
    },
    {
     id: 'Kontakt',
-    title: 'Kontakt',
+    title: 'mnuKontakt',
     subMenu: [
      {action: '',title: 'Standort'      ,icon: 'mdi-map-marker'},
      {action: '',title: 'Öffnungszeiten',icon: 'mdi-clock-time-five-outline'},
@@ -180,7 +182,7 @@ public menus=[            {
    },
    {
     id: 'Notdienst',
-    title: 'Notdienst',
+    title: 'mnuNotdienst',
     subMenu: [
      {action: '',title: 'Standort'      ,icon: 'mdi-phone'},
      {action: '',title: 'Öffnungszeiten',icon: 'mdi-phone'},
@@ -191,9 +193,11 @@ public menus=[            {
 }
 </script>
 
-<style>
-.v-app-bar-title__content {
-    left: var(--app-bar-title-left);
+<style lang="scss" scoped>
+
+  @import '../scss/variables.scss';
+
+@mixin baseTitle(){
     margin-bottom: .5rem;
     font-family: poppins,sans-serif;
     font-weight: 700 !important;
@@ -204,22 +208,32 @@ public menus=[            {
     font-size: var(--app-bar-title-size) !important ;
     text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
 }
+.v-app-bar-title__content {
+    @include baseTitle();
+    left: var(--app-bar-title-left);
+}
+
 .v-app-bar-title__placeholder {
-    
+    @include baseTitle();
     top: 10px;
     position: relative;
-    margin-bottom: .5rem;
-    font-family: poppins,sans-serif !important;
-    font-weight: 700 !important;
-    line-height: 1.3 !important;
-    text-overflow: clip !important;
-    overflow: visible !important;
-    width: 600px;
-    font-size: var(--app-bar-title-size) !important ;
-    text-shadow: 2px 2px 2px rgb(0 0 0 / 10%);
 }
 
 .bar-title-mobile{
   font-size: 18px !important ;
+}
+.toothIcon{
+  position:fixed !important;
+  @debug "Testing debug :  #{$lang}";
+  @if $lang == ar {
+    left:20px;  
+  }@else{
+    right:20px;  
+  }
+  
+  top:50px;
+  width: 40px;
+
+
 }
 </style>
