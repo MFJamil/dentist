@@ -62,11 +62,11 @@
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
 
-      <v-btn icon>
+      <v-btn icon @click="showMobileMenu=!showMobileMenu"> 
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
 
-      <template v-slot:extension>
+      <template v-if="!isMobile" v-slot:extension>
         <v-tabs align-with-title>
           
           <v-menu
@@ -119,6 +119,54 @@
         </v-tabs>
       </template> 
  </v-app-bar>
+       <v-navigation-drawer
+      v-model="showMobileMenu"
+      absolute
+      bottom
+      temporary
+    >
+      <v-list
+        nav
+        dense
+      >
+        <v-list-group
+          v-for="(menu,id) in menus"
+          :key="id"
+          v-model="menu.active"
+          :prepend-icon="menu.action"
+          no-action
+        >
+        <template v-slot:activator>
+          <v-list-item-content>
+            <v-list-item-title v-text="$i18n.t(menu.title)"></v-list-item-title>
+          </v-list-item-content>
+        </template>
+        
+        <!--
+        <v-list-item-group
+          
+          active-class="deep-purple--text text--accent-4"
+        >
+          <v-list-item>
+            <v-list-item-title>Foo</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Bar</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Fizz</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-title>Buzz</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+        -->
+        </v-list-group>
+      </v-list>
+    </v-navigation-drawer>
 
 </div>
 </template>
@@ -132,6 +180,7 @@ export default class Header extends Vue {
   @Prop()
   public isMobile! :boolean;
   public lang = "de";
+  public showMobileMenu = false;
   public openedMenu!:string;
         menuOpened(title:string){
          // this.$log.info("Menu is opened : " + title );
