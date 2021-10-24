@@ -1,7 +1,7 @@
 <template >
 <!-- App.vue -->
 <!-- base color 011838 -->
-<v-app>
+<v-app >
   <v-expand-x-transition>
   <Header :isMobile="isOnMobile" />
   </v-expand-x-transition>
@@ -20,6 +20,7 @@
   </v-main>
     </v-expand-x-transition>
 <Footer  :isMobile="isOnMobile" />
+<Toolbox />
 </v-sheet>
 
 </v-app>
@@ -30,13 +31,15 @@ import { Component, Vue } from 'vue-property-decorator';
 
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import Toolbox from './components/ToolBox.vue';
 import webUtils from './utils/WebUtils';
 import themHandler from './ThemeHandler';
 
 @Component({
   components: {
     Header,
-    Footer
+    Footer,
+    Toolbox
   }, 
 })
 

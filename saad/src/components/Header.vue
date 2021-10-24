@@ -222,10 +222,11 @@ public menus=[            {
 .bar-title-mobile{
   font-size: 18px !important ;
 }
+
 .toothIcon{
   position:fixed !important;
   @debug "Testing debug :  #{$lang}";
-  @if $lang == ar {
+  @if $lang == 'ar' {
     left:20px;  
   }@else{
     right:20px;  

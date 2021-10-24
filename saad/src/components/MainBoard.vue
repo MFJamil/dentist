@@ -1,7 +1,10 @@
 <template>
-    <v-container style="text-align: center;">
-        <h1 class="section-title">Das Team der Zahnarztpraxis</h1>
+    <v-container 
+    
+    style="text-align: center;">
+        <h1 class="section-title">{{$i18n.t('praxisTeam')}}</h1>
     <v-card
+        dark
         id="pageBody"
         class="mx-auto"
         max-width="344"
@@ -47,6 +50,7 @@
         </div>
         </v-expand-transition>
     </v-card>
+    
     <v-spacer />
     <v-card
        style="margin-top: 1500px;"
