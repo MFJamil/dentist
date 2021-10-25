@@ -8,15 +8,15 @@
       >
         <v-spacer></v-spacer>
         <v-icon>mdi-email</v-icon>
-        Nachricht
+        &nbsp; {{ $i18n.t('actNachricht') }}
         <v-spacer></v-spacer>
         <div class="d-none d-sm-flex">
         <v-icon>mdi-clock-time-eight</v-icon>
-         Mo.Di.Do (9 - 13) + (15 - 18)  |  Mi. (9 - 14:30) | Fr. (8 - 13)
+         &nbsp; Mo.Di.Do (9 - 13) + (15 - 18)  |  Mi. (9 - 14:30) | Fr. (8 - 13)
         </div>
          <v-spacer></v-spacer>
-        <a href="tel:06131229816"><v-icon>mdi-phone</v-icon></a>
-        06131-229816
+        <a href="tel:06131229816"><v-icon>mdi-phone-classic</v-icon></a>
+        &nbsp; 06131-229816
          
         <v-spacer></v-spacer>
         
@@ -32,10 +32,7 @@
       scroll-target="#pageBody"
       scroll-threshold="500"
     >
-    <v-app-bar-nav-icon
-        @click="switchLang();"
-      > 
-      </v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click="isMobile?showMobileMenu=!showMobileMenu:showMobileMenu=false">  </v-app-bar-nav-icon>
      <v-img
           alt="Zahn Bild"
           class="shrink mr-2 d-none d-sm-flex toothIcon"
@@ -61,10 +58,11 @@
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-
-      <v-btn icon @click="showMobileMenu=!showMobileMenu"> 
+      <!--
+      <v-btn icon > 
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
+      -->
 
       <template v-if="!isMobile" v-slot:extension>
         <v-tabs align-with-title>
@@ -94,7 +92,7 @@
                   {{ $i18n.t(menu.title)}}
                 </v-btn>
               </template>
-              <v-list dense>
+              <v-list dense v-if="menu.subMenu">
                   <template v-for="item in menu.subMenu" >
                     <v-list-item  :key="item.title" link @click="handleAction(item.action.Aktion)" 
                       
@@ -103,9 +101,9 @@
                         <v-icon small :color="item.action.enabled?'primary':'grey'">{{item.icon}}</v-icon>
                       </v-list-item-icon>
 
-                      <v-list-item-title style="position:relative;left:-30px;"
+                      <v-list-item-title 
                       
-                      >{{item.title}}</v-list-item-title>
+                      >{{ $i18n.t(item.title)}}</v-list-item-title>
                       <v-list-item-action-text>{{item.key}}</v-list-item-action-text>
                     </v-list-item>
                   </template>
@@ -141,7 +139,21 @@
             <v-list-item-title v-text="$i18n.t(menu.title)"></v-list-item-title>
           </v-list-item-content>
         </template>
-        
+        <v-list-item
+          v-for="child in menu.subMenu"
+          :key="child.title"
+        >
+        <v-list-item-icon>
+          <v-icon
+            v-if="child.icon"
+          >
+            {{child.icon}}
+          </v-icon>
+        </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title v-text="$i18n.t(child.title)"></v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
         <!--
         <v-list-item-group
           
@@ -199,9 +211,9 @@ public menus=[            {
     id: 'Praxis',
     title: 'mnuPraxis',
     subMenu: [
-     {action: '',title: 'Ärtzte',icon:'mdi-medical-bag'},
-     {action: '',title: 'Team'  ,icon:'mdi-account-multiple'},
-     {action: '',title: 'Tour'  ,icon:'mdi-magnify-plus-outline' },
+     {action: '',title: 'mnuAertzte',icon:'mdi-medical-bag'},
+     {action: '',title: 'mnuTeam'  ,icon:'mdi-account-multiple'},
+     {action: '',title: 'mnuTour'  ,icon:'mdi-magnify-plus-outline' },
      
     ]
    },
@@ -225,17 +237,13 @@ public menus=[            {
     id: 'Kontakt',
     title: 'mnuKontakt',
     subMenu: [
-     {action: '',title: 'Standort'      ,icon: 'mdi-map-marker'},
-     {action: '',title: 'Öffnungszeiten',icon: 'mdi-clock-time-five-outline'},
+     {action: '',title: 'mnuStandort'      ,icon: 'mdi-map-marker'},
+     {action: '',title: 'mnuOffnungsZeiten',icon: 'mdi-clock-time-five-outline'},
     ]
    },
    {
     id: 'Notdienst',
     title: 'mnuNotdienst',
-    subMenu: [
-     {action: '',title: 'Standort'      ,icon: 'mdi-phone'},
-     {action: '',title: 'Öffnungszeiten',icon: 'mdi-phone'},
-    ]
    },
 
 ];
