@@ -35,7 +35,7 @@
     <v-app-bar-nav-icon @click="isMobile?showMobileMenu=!showMobileMenu:showMobileMenu=false">  </v-app-bar-nav-icon>
      <v-img
           alt="Zahn Bild"
-          class="shrink mr-2 d-none d-sm-flex toothIcon"
+          :class="['shrink' , 'mr-2' ,'d-none', 'd-sm-flex' , (lang=='ar'?'toothIcon_left':'toothIcon_right')]"
           contain
           src="../assets/tooth.png"
           transition="scale-transition"
@@ -186,14 +186,21 @@
 <script  lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import themHandler from '../ThemeHandler';
+import vars from '../scss/vars.scss';
+
 
 @Component
 export default class Header extends Vue {
   @Prop()
   public isMobile! :boolean;
+  @Prop()
   public lang = "de";
+
   public showMobileMenu = false;
   public openedMenu!:string;
+      mounted(){
+        console.log("Vars read : " + vars.lang);
+      }
         menuOpened(title:string){
          // this.$log.info("Menu is opened : " + title );
           this.openedMenu=title;
@@ -252,7 +259,7 @@ public menus=[            {
 
 <style lang="scss" scoped>
 
-  @import '../scss/variables.scss';
+  
 
 @mixin baseTitle(){
     margin-bottom: .5rem;
@@ -280,18 +287,20 @@ public menus=[            {
   font-size: 18px !important ;
 }
 
-.toothIcon{
+@mixin toothIcon(){
   position:fixed !important;
-  @debug "Testing debug :  #{$lang}";
-  @if $lang == 'ar' {
-    left:20px;  
-  }@else{
-    right:20px;  
-  }
-  
-  top:50px;
+  bottom:20px;
   width: 40px;
-
-
 }
+
+.toothIcon_left{
+  @include toothIcon();
+    left:20px;  
+}
+
+.toothIcon_right{
+  @include toothIcon();
+    right:20px;  
+}
+
 </style>

@@ -3,7 +3,7 @@
 <!-- base color 011838 -->
 <v-app >
   <v-expand-x-transition>
-  <Header :isMobile="isOnMobile" />
+  <Header :isMobile="isOnMobile" :lang="curLang"/>
   </v-expand-x-transition>
   <!-- Sizes your content based upon application components -->
   <v-sheet id="pageBody" class="overflow-y-auto" max-height="100vh" style="overflow-x: hidden;">
@@ -20,7 +20,7 @@
   </v-main>
     </v-expand-x-transition>
 <Footer  :isMobile="isOnMobile" />
-<Toolbox />
+<Toolbox @langUpdate="langUpdated" />
 </v-sheet>
 
 </v-app>
@@ -45,11 +45,16 @@ import themHandler from './ThemeHandler';
 
 export default class App extends Vue{
   isOnMobile = false;
+  curLang = 'de';
   mounted(){
     console.log("Screen Size : " + webUtils.screenSize(this));
     console.log("Is Mobile   : " + webUtils.isMobile(this));
     this.isOnMobile = webUtils.isMobile(this);
-    themHandler.activateTheme(this.isOnMobile,false,'ar',this);
+    themHandler.activateTheme(this.isOnMobile,false,this.curLang,this);
+  }
+
+  langUpdated(lang:string){
+    this.curLang = lang
   }
 }
 </script>

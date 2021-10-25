@@ -32,11 +32,14 @@
 <script  lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import themHandler from '../ThemeHandler';
+import vars from '../scss/vars.scss';
 
 @Component
 export default class Toolbox extends Vue {
     switchLang(lang:string){
         themHandler.activateTheme(false,false,lang,this);
+        vars.lang = lang;
+        this.$emit('langUpdate',lang);
 
     }
 }

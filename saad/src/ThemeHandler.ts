@@ -126,19 +126,21 @@ export class ThemeHandler{
 
     
     public activateTheme(mobile = true,dark=false,lang='de',vue:Vue){
-        const root = document.documentElement;
+        const root:HTMLElement|null = document.documentElement;
         console.log("Setting lang to : " + lang);
         const targetTheme = this.themes.filter(curTheme=>
             (curTheme.name===(mobile?'mobile':'default'))&&
-            (curTheme.dark===dark)&&
             (curTheme.lang===lang)
             )[0];
         this.props = [];
         this.currentTheme = targetTheme;    
-        targetTheme.props.forEach(curProp =>{
-            root.style.setProperty(curProp.name, '' + curProp.value);
-            this.props[curProp.name] = curProp.value;
-        });
+        if (root!==null){
+            targetTheme.props.forEach(curProp =>{
+                root.style.setProperty(curProp.name, '' + curProp.value);
+                this.props[curProp.name] = curProp.value;
+            });
+    
+        }
         this.props[this.PROP_DARK] = targetTheme.dark;
         
         vue.$vuetify.rtl = (lang==='ar');
