@@ -14,7 +14,7 @@
       <v-container fluid >
 
         <!-- If using vue-router -->
-        <router-view ></router-view>
+        <router-view :isMobile="isOnMobile" :lang="curLang"></router-view>
       </v-container>
    
   </v-main>
