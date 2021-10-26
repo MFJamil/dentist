@@ -12,6 +12,9 @@ export const messages ={
         mnuTeam:'Team',
         mnuTour:'Tour',
         actNachricht:'Nachricht',
+        dct_name_sa:'Saad Kundakji',
+        dct_name_aa:'Ahmad Alluh',
+        dct_pos_za:'Zahnarzt',
     },
     'ar':{
         appTitle: 'عيادة طبيب الأسنان د سعد قندقجى و شركائه ',
@@ -26,6 +29,9 @@ export const messages ={
         mnuTeam:'فريق',
         mnuTour:'جولة',
         actNachricht:'رسالة ',
+        dct_name_sa:'د سعد قندقجى',
+        dct_name_aa:'أحمد اللوح',
+        dct_pos_za:'دكتورالاسنان',
 
     },
     'en':{
@@ -41,7 +47,9 @@ export const messages ={
         mnuTeam:'Team',
         mnuTour:'Tour',
         actNachricht:'Message',
-
+        dct_name_sa:'Saad Kundakji',
+        dct_name_aa:'Ahmad Alluh',
+        dct_pos_za:'Dentist',
     },
 
 }
