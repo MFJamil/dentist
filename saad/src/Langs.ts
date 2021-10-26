@@ -16,6 +16,10 @@ export const messages ={
         dct_name_aa:'Ahmad Alluh',
         dct_name_aj:'Ayman Jajeh',
         dct_pos_za:'Zahnarzt',
+        titleServices:'Zahnärztliche Behandlungen',
+        srv_implantologie:'Implantologie',
+        srv_chirurgische: 'Chirurgische Leistungen',
+        srv_funkDiag:'Funktionsdiagnostik',
     },
     'ar':{
         appTitle: 'عيادة طبيب الأسنان د سعد قندقجى و شركائه ',
@@ -34,6 +38,10 @@ export const messages ={
         dct_name_aa:'أحمد اللوح',
         dct_name_aj:'أيمن جاجه',
         dct_pos_za:'دكتورالاسنان',
+        titleServices:'علاجات الأسنان',
+        srv_implantologie:'زراعة الأسنان',
+        srv_chirurgische: 'الخدمات الجراحية',
+        srv_funkDiag:'التشخيصات الوظيفية',
 
     },
     'en':{
@@ -53,6 +61,10 @@ export const messages ={
         dct_name_aa:'Ahmad Alluh',
         dct_name_aj:'Ayman Jajeh',
         dct_pos_za:'Dentist',
+        titleServices:'Dental treatments',
+        srv_implantologie:'Implantology',
+        srv_chirurgische: 'Surgical services',
+        srv_funkDiag:'Functional diagnostics',
     },
 
 }

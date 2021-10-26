@@ -1,77 +1,13 @@
 <template>
-    <v-container 
-    
-    style="text-align: center;">
-        <h1 class="section-title">{{$i18n.t('praxisTeam')}}</h1>
-        <br />
+    <v-container  style="text-align: center;">
+        <Doctors />
+    <br />
+    <br />
+    <br />
+    <br />
+        <Services />
 
-    <div v-if="!isMobile">
-        <v-row>
-            <v-col v-for="(doc,id) in doctors" :key="id" :id="id">
 
-                <v-card
-                    class="mx-auto text-center"
-                    max-width="250"
-                    outlined
-                    shaped
-                    flat
-
-                >
-                <v-responsive class="pt-4">
-                    <v-avatar size="150" rounded class="grey lighten-2">
-                    <img
-                    :src="doc.pic"
-                    height="150px"
-                    
-                    />
-                    </v-avatar>
-                </v-responsive>
-
-                    <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
-                    {{$i18n.t(doc.name)}}
-                    </v-card-title>
-
-                    <v-card-subtitle style="text-weight:bold !important;">
-                    {{$i18n.t(doc.position)}}
-                    </v-card-subtitle>
-                </v-card>
-            </v-col>
-        </v-row>
-    </div>
-    <div v-if="isMobile">
-        <v-row v-for="(doc,id) in doctors" :key="id" :id="id">
-            <v-col >
-                <v-card
-                    class="mx-auto text-center"
-                    max-width="250"
-                    outlined
-                    shaped
-                    flat
-
-                >
-                <v-responsive class="pt-4">
-                    <v-avatar size="150" rounded class="grey lighten-2">
-                    <img
-                    :src="doc.pic"
-                    height="150px"
-                    
-                    />
-                    </v-avatar>
-                </v-responsive>
-
-                    <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
-                    {{$i18n.t(doc.name)}}
-                    </v-card-title>
-
-                    <v-card-subtitle style="text-weight:bold !important;">
-                    {{$i18n.t(doc.position)}}
-                    </v-card-subtitle>
-                </v-card>
-            </v-col>
-        </v-row>
-    </div>
-    
-    <v-spacer />
     <v-card
        style="margin-top: 1500px;"
         class="mx-auto"
@@ -126,15 +62,21 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
+import Doctors from './Doctors.vue';
+import Services from './Services.vue';
 
-
-@Component
+@Component({
+  components: {
+    Doctors,
+    Services
+  }, 
+})
 export default class MainBoard extends Vue {
   @Prop()
   public isMobile! :boolean;
   @Prop()
   public lang = "de";
-  
+
 
     public show = false;
     public doctors = [
