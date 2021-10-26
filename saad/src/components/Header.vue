@@ -242,9 +242,9 @@ public menus=[            {
     id: 'Leistungen',
     title: 'mnuLeistungen',
     subMenu: [
-     {action: '',title: 'Implantologie', icon:'mdi-account-wrench'},
-     {action: '',title: 'Chirurgische Leistungen', icon:'mdi-account-wrench'},
-     {action: '',title: 'Funktionsdiagnostik', icon:'mdi-account-wrench'},
+     {action: '',title: 'srv_implantologie', icon:'mdi-account-wrench'},
+     {action: '',title: 'srv_chirurgische', icon:'mdi-account-wrench'},
+     {action: '',title: 'srv_funkDiag', icon:'mdi-account-wrench'},
      {action: '',title: 'Allgemeine Diagnostik', icon: 'mdi-account-wrench'},
      {action: '',title: 'Kosmetische Leistungen', icon:'mdi-account-wrench'},
      {action: '',title: 'Vorsorge', icon: 'mdi-account-wrench'},

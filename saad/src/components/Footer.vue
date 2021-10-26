@@ -128,15 +128,15 @@ export default class Footer extends Vue {
           title: 'mnuLeistungen',
           list: [
             {
-              title: 'Implantologie',
+              title: 'srv_implantologie',
               icon: 'mdi-cog'
             },
             {
-              title: 'Chirurgische Leistungen',
+              title: 'srv_chirurgische',
               icon: 'mdi-cog'
             },
             {
-              title: 'Funktionsdiagnostik',
+              title: 'srv_funkDiag',
               icon: 'mdi-cog'
             },
             {
