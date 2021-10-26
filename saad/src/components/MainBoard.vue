@@ -10,14 +10,14 @@
 
             <v-card
                 class="mx-auto text-center"
-                max-width="200"
+                max-width="250"
                 outlined
                 shaped
                 flat
 
             >
             <v-responsive class="pt-4">
-                <v-avatar size="100" rounded class="grey lighten-2">
+                <v-avatar size="150" rounded class="grey lighten-2">
                 <img
                 :src="doc.pic"
                 height="150px"
@@ -26,7 +26,7 @@
                 </v-avatar>
             </v-responsive>
 
-                <v-card-title primary-title class="justify-center">
+                <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
                 {{$i18n.t(doc.name)}}
                 </v-card-title>
 
@@ -108,6 +108,12 @@ export default class MainBoard extends Vue {
             position: 'dct_pos_za',
             pic: 'https://cdn.vuetifyjs.com/images/john.jpg',
         },
+        {
+            name: 'dct_name_aj',
+            position: 'dct_pos_za',
+            pic: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+        },
+
 
 ];
 

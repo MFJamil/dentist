@@ -14,6 +14,7 @@ export const messages ={
         actNachricht:'Nachricht',
         dct_name_sa:'Saad Kundakji',
         dct_name_aa:'Ahmad Alluh',
+        dct_name_aj:'Ayman Jajeh',
         dct_pos_za:'Zahnarzt',
     },
     'ar':{
@@ -31,6 +32,7 @@ export const messages ={
         actNachricht:'رسالة ',
         dct_name_sa:'د سعد قندقجى',
         dct_name_aa:'أحمد اللوح',
+        dct_name_aj:'أيمن جاجه',
         dct_pos_za:'دكتورالاسنان',
 
     },
@@ -49,6 +51,7 @@ export const messages ={
         actNachricht:'Message',
         dct_name_sa:'Saad Kundakji',
         dct_name_aa:'Ahmad Alluh',
+        dct_name_aj:'Ayman Jajeh',
         dct_pos_za:'Dentist',
     },
 
