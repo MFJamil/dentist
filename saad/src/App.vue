@@ -19,7 +19,7 @@
    
   </v-main>
     </v-expand-x-transition>
-<Footer  :isMobile="isOnMobile" />
+<Footer  :isMobile="isOnMobile" :lang="curLang"/>
 <Toolbox @langUpdate="langUpdated" />
 </v-sheet>
 

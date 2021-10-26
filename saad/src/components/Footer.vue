@@ -15,31 +15,48 @@
     <!-- base color 011838 -->
 
       <v-card-text class="white--text pt-0" style="width: 100vw;margin-top: 20px;text-align: center;">
-       <v-row style="text-align: center !important;">
-         
-         <v-col v-if="!isMobile" style="width: 200vw; text-align: left;">
-         </v-col>
-         <v-col  v-for="(item,id) in items" :key="id" style="text-align: left;">
-           <span class="footerTitle">{{item.title}}</span>
-           <!--<li v-for="(sitem,id) in item.list" :key="id">{{sitem.title}}&nbsp;&nbsp;<v-icon small>{{sitem.icon}}</v-icon></li>-->
-           
-            <div v-for="(sitem,id) in item.list" :key="id" class="footerLink">
-              <a v-if="sitem.url" :href="sitem.url" target="_blank" >
-                <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
-                &nbsp;{{sitem.title}}&nbsp;&nbsp;
-                <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
-              </a>
-              <div v-else >
-                <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
-                &nbsp;{{sitem.title}}&nbsp;&nbsp;
-                <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+        <div v-if="isMobile">  
+          <v-row  v-for="(item,id) in items" :key="id" :style="'text-align: '+(lang!='ar'? 'left':'right')">
+            <v-col>
+              <span class="footerTitle">{{ $i18n.t(item.title)}}</span>
+              <div v-for="(sitem,id) in item.list" :key="id" class="footerLink">
+                <a v-if="sitem.url" :href="sitem.url" target="_blank" >
+                  <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
+                  &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
+                  <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+                </a>
+                <div v-else >
+                  <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
+                  &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
+                  <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+                </div>
               </div>
-            </div>
-            
-         </v-col>
+            </v-col>
+          </v-row>
+        </div>
+        <div v-else>  
+          <v-row style="text-align: center !important;">
+            <v-col  style="width: 200vw;"></v-col>
+            <v-col  v-for="(item,id) in items" :key="id" :style="'text-align: '+(lang!='ar'? 'left':'right')">
+              <span class="footerTitle">{{ $i18n.t(item.title)}}</span>
+              
+              <div v-for="(sitem,id) in item.list" :key="id" class="footerLink">
+                <a v-if="sitem.url" :href="sitem.url" target="_blank" >
+                  <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
+                  &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
+                  <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+                </a>
+                <div v-else >
+                  <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
+                  &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
+                  <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
+                </div>
+              </div>
+            </v-col>
+            <v-col style="width: 200vw;"></v-col>
+          </v-row>
+        </div>
 
-
-       </v-row>
       </v-card-text>
 
       <v-divider></v-divider>
@@ -80,6 +97,8 @@ export default class Footer extends Vue {
 
   @Prop()
   public isMobile! :boolean;
+  @Prop()
+  public lang = "de";
 
     public icons = [
         'mdi-facebook',
@@ -89,24 +108,24 @@ export default class Footer extends Vue {
       ];
     public items=[
       {
-          title: 'Praxis',
+          title: 'mnuPraxis',
           list: [
             {
-              title: 'Ärtzte',
+              title: 'mnuAertzte',
               icon: 'mdi-medical-bag'
             },
             {
-              title: 'Team',
+              title: 'mnuTeam',
               icon: 'mdi-account-multiple'
             },
             {
-              title: 'Tour',
+              title: 'mnuTour',
               icon: 'mdi-magnify-plus-outline'
             },
           ]
       },
       {
-          title: 'Leistungen',
+          title: 'mnuLeistungen',
           list: [
             {
               title: 'Implantologie',
@@ -149,15 +168,15 @@ export default class Footer extends Vue {
       },
 
      {
-          title: 'Kontakt',
+          title: 'mnuKontakt',
           list: [
             {
-              title: 'Standort',
+              title: 'mnuStandort',
               icon: 'mdi-map-marker',
               url: 'https://www.google.com/maps/place/Zahnarzt+Praxis+Kundakji+%26+Partner/@49.9999337,8.2611765,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x22cbe0caf65b9e9!8m2!3d49.9999649!4d8.2633183'
             },
             {
-              title: 'Öffnungszeiten',
+              title: 'mnuOffnungsZeiten',
               icon: 'mdi-clock-time-five-outline'
             },
           ]

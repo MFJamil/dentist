@@ -1,7 +1,7 @@
 <template>
   <div id="toolBoxCont">
       <!--<li class="['mr-2','em','em-flag-ae']"></li>-->
-      <div id="tlbIcon"><v-icon dark>mdi-account-cog</v-icon></div>
+      <div id="tlbIcon"><v-icon dark>mdi-web</v-icon></div>
       <div class="group"> 
             <li class="mr-2 em em-flag-sa langItem" @click="switchLang('ar');" ></li>
             <li class="mr-2 em em-flag-de langItem" @click="switchLang('de');"></li>
@@ -55,8 +55,8 @@ export default class Toolbox extends Vue {
     #toolBoxCont{
         position: fixed;
         bottom: 50px;
-        left: -220px;
-        width: 250px;
+        left: -140px;
+        width: 170px;
         height: 45px;
         border-top-right-radius: 10px;
         

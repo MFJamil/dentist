@@ -32,7 +32,21 @@
       scroll-target="#pageBody"
       scroll-threshold="500"
     >
-    <v-app-bar-nav-icon @click="isMobile?showMobileMenu=!showMobileMenu:showMobileMenu=false">  </v-app-bar-nav-icon>
+    <v-app-bar-nav-icon transition="fade-transition" style="transition-duration:1500ms;"
+      v-if="isMobile && showMobileMenu"
+      @click.stop="showMobileMenu=false"
+    >
+      <v-icon>
+        mdi-close
+      </v-icon>
+    </v-app-bar-nav-icon>
+    <v-app-bar-nav-icon transition="fade-transition" style="transition-duration:1500ms;"
+      v-if="isMobile && !showMobileMenu"
+      @click.stop="showMobileMenu=true"
+    >
+      <v-icon>mdi-menu</v-icon>
+    </v-app-bar-nav-icon>
+    <v-app-bar-nav-icon v-if="!isMobile">  </v-app-bar-nav-icon>
      <v-img
           alt="Zahn Bild"
           :class="['shrink' , 'mr-2' ,'d-none', 'd-sm-flex' , (lang=='ar'?'toothIcon_left':'toothIcon_right')]"
@@ -97,7 +111,7 @@
                     <v-list-item  :key="item.title" link @click="handleAction(item.action.Aktion)" 
                       
                     >
-                      <v-list-item-icon >
+                      <v-list-item-icon :style="lang=='ar'?'margin-left:0px !important;':'margin-right:0px !important;'" >
                         <v-icon small :color="item.action.enabled?'primary':'grey'">{{item.icon}}</v-icon>
                       </v-list-item-icon>
 
