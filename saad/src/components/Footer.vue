@@ -25,7 +25,7 @@
                   &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
                   <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
                 </a>
-                <div v-else >
+                <div v-else @click="$emit(sitem)" >
                   <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
                   &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
                   <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
@@ -38,7 +38,7 @@
           <v-row style="text-align: center !important;">
             <v-col  style="width: 200vw;"></v-col>
             <v-col  v-for="(item,id) in items" :key="id" :style="'text-align: '+(lang!='ar'? 'left':'right')">
-              <span class="footerTitle">{{ $i18n.t(item.title)}}</span>
+              <span class="footerTitle" @click="$emit('action',item)">{{ $i18n.t(item.title)}}</span>
               
               <div v-for="(sitem,id) in item.list" :key="id" class="footerLink">
                 <a v-if="sitem.url" :href="sitem.url" target="_blank" >
@@ -46,7 +46,7 @@
                   &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
                   <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
                 </a>
-                <div v-else >
+                <div v-else @click="$emit('action',sitem)" >
                   <v-icon x-small color="yellow">mdi-star-four-points</v-icon>
                   &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
                   <v-icon :size="isMobile?'x-small':'small'">{{sitem.icon}}</v-icon>
@@ -100,6 +100,7 @@ export default class Footer extends Vue {
   @Prop()
   public lang = "de";
 
+
     public icons = [
         'mdi-facebook',
         'mdi-twitter',
@@ -112,7 +113,8 @@ export default class Footer extends Vue {
           list: [
             {
               title: 'mnuAertzte',
-              icon: 'mdi-medical-bag'
+              icon: 'mdi-medical-bag',
+              action: 'docs',
             },
             {
               title: 'mnuTeam',
@@ -120,12 +122,14 @@ export default class Footer extends Vue {
             },
             {
               title: 'mnuTour',
-              icon: 'mdi-magnify-plus-outline'
+              icon: 'mdi-magnify-plus-outline',
+              action: 'tour'
             },
           ]
       },
       {
           title: 'mnuLeistungen',
+          action: 'services',
           list: [
             {
               title: 'srv_implantologie',
@@ -191,6 +195,7 @@ export default class Footer extends Vue {
 .footerLink{
   position: relative;
   left: 4px;
+  cursor: pointer;
   
   font-size: var(--footer-link-size);
 }
@@ -201,6 +206,7 @@ export default class Footer extends Vue {
 }
 .footerTitle{
   font-weight: bold;
+  cursor: pointer;
   font-size: var(--footer-title-size);
 }
 </style>

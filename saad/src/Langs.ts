@@ -20,6 +20,8 @@ export const messages ={
         srv_implantologie:'Implantologie',
         srv_chirurgische: 'Chirurgische Leistungen',
         srv_funkDiag:'Funktionsdiagnostik',
+        titleTour:'Rundgang durch die Klinik',
+
     },
     'ar':{
         appTitle: 'عيادة طبيب الأسنان د سعد قندقجى و شركائه ',
@@ -42,7 +44,7 @@ export const messages ={
         srv_implantologie:'زراعة الأسنان',
         srv_chirurgische: 'الخدمات الجراحية',
         srv_funkDiag:'التشخيصات الوظيفية',
-
+        titleTour: 'جولة في أرجاء العيادة ',
     },
     'en':{
         appTitle: 'Dentist clinic Kundakji & Partner',
@@ -65,6 +67,7 @@ export const messages ={
         srv_implantologie:'Implantology',
         srv_chirurgische: 'Surgical services',
         srv_funkDiag:'Functional diagnostics',
+        titleTour: 'Tour around the clinic',
     },
 
 }

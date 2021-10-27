@@ -10,8 +10,9 @@
                         class="mx-auto text-center"
                         max-width="250"
                         outlined
+                        elevation="5"
                         shaped
-                        flat
+                        
                     >
                     <v-responsive class="pt-4">
                         <v-avatar size="150" rounded class="grey lighten-2">
@@ -42,7 +43,7 @@
                         max-width="250"
                         outlined
                         shaped
-                        flat
+                        
 
                     >
                     <v-responsive class="pt-4">
@@ -79,7 +80,7 @@ export default class Doctors extends Vue {
   @Prop()
   public isMobile! :boolean;
   @Prop()
-  public lang = "de";
+  public lang!:string;
     public doctors = [
         {
             name: 'dct_name_sa',

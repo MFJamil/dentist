@@ -3,23 +3,25 @@
 <!-- base color 011838 -->
 <v-app >
   <v-expand-x-transition>
-  <Header :isMobile="isOnMobile" :lang="curLang"/>
+  <Header :isMobile="isOnMobile" :lang="curLang" @action="handleAction"/>
   </v-expand-x-transition>
   <!-- Sizes your content based upon application components -->
   <v-sheet id="pageBody" class="overflow-y-auto" max-height="100vh" style="overflow-x: hidden;">
-    <v-expand-x-transition>
+    
   <v-main >
     
       <!-- Provides the application the proper gutter -->
       <v-container fluid >
 
         <!-- If using vue-router -->
+        <v-fab-transition >
         <router-view :isMobile="isOnMobile" :lang="curLang"></router-view>
+        </v-fab-transition>
       </v-container>
    
   </v-main>
-    </v-expand-x-transition>
-<Footer  :isMobile="isOnMobile" :lang="curLang"/>
+    
+<Footer  :isMobile="isOnMobile" :lang="curLang" @action="handleAction"/>
 <Toolbox @langUpdate="langUpdated" />
 </v-sheet>
 
@@ -56,5 +58,16 @@ export default class App extends Vue{
   langUpdated(lang:string){
     this.curLang = lang
   }
+  public handleAction(item:any){
+    console.log("Handle Action called for : " + JSON.stringify(item) + " holding type " + typeof item);
+    if (item.action || typeof item == 'string'){
+      let path = item.action?item.action:item;
+      console.log("Current path : " + this.$router.currentRoute.path + " new path: " + path);
+      if(this.$router.currentRoute.path!=='/'+path)
+        this.$router.push(path);
+    }
+    
+  }
+
 }
 </script>

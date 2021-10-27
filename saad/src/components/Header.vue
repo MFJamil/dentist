@@ -32,7 +32,7 @@
       scroll-target="#pageBody"
       scroll-threshold="500"
     >
-    <v-app-bar-nav-icon transition="fade-transition" style="transition-duration:1500ms;"
+    <v-app-bar-nav-icon transition="fade-transition" style="transition-duration:1000ms;"
       v-if="isMobile && showMobileMenu"
       @click.stop="showMobileMenu=false"
     >
@@ -40,13 +40,13 @@
         mdi-close
       </v-icon>
     </v-app-bar-nav-icon>
-    <v-app-bar-nav-icon transition="fade-transition" style="transition-duration:1500ms;"
+    <v-app-bar-nav-icon transition="fade-transition" style="transition-duration:1000ms;"
       v-if="isMobile && !showMobileMenu"
       @click.stop="showMobileMenu=true"
     >
       <v-icon>mdi-menu</v-icon>
     </v-app-bar-nav-icon>
-    <v-app-bar-nav-icon v-if="!isMobile">  </v-app-bar-nav-icon>
+    <v-app-bar-nav-icon v-if="!isMobile" @click="$emit('action','/')"> <v-icon> mdi-home</v-icon> </v-app-bar-nav-icon>
      <v-img
           alt="Zahn Bild"
           :class="['shrink' , 'mr-2' ,'d-none', 'd-sm-flex' , (lang=='ar'?'toothIcon_left':'toothIcon_right')]"
@@ -66,7 +66,7 @@
       
 
       <!--<v-app-bar-title :class="isMobile?'bar-title-mobile':''" style="transition-duration: 1000ms !important;">Zahnarzt Praxis Kundakji &amp; Partner</v-app-bar-title>-->
-      <v-app-bar-title :class="isMobile?'bar-title-mobile':''" style="transition-duration: 1000ms !important;">{{ $i18n.t('appTitle') }}</v-app-bar-title>
+      <v-app-bar-title :class="isMobile?'bar-title-mobile':''" style="transition-duration: 700ms !important;">{{ $i18n.t('appTitle') }}</v-app-bar-title>
       <v-spacer></v-spacer>
 
       <v-btn icon>
@@ -100,7 +100,7 @@
                   width="100px"
                   @mouseover="menuOpened(menu.title)"
                   class="text-capitalize"
-                  
+                  @click="$emit('action',menu)"
                   
                 >
                   {{ $i18n.t(menu.title)}}
@@ -108,7 +108,7 @@
               </template>
               <v-list dense v-if="menu.subMenu">
                   <template v-for="item in menu.subMenu" >
-                    <v-list-item  :key="item.title" link @click="handleAction(item.action.Aktion)" 
+                    <v-list-item  :key="item.title" link @click="$emit('action',item)"
                       
                     >
                       <v-list-item-icon :style="lang=='ar'?'margin-left:0px !important;':'margin-right:0px !important;'" >
@@ -131,7 +131,7 @@
         </v-tabs>
       </template> 
  </v-app-bar>
-       <v-navigation-drawer
+  <v-navigation-drawer
       v-model="showMobileMenu"
       absolute
       bottom
@@ -145,7 +145,7 @@
           v-for="(menu,id) in menus"
           :key="id"
           v-model="menu.active"
-          :prepend-icon="menu.action"
+
           no-action
         >
         <template v-slot:activator>
@@ -232,15 +232,16 @@ public menus=[            {
     id: 'Praxis',
     title: 'mnuPraxis',
     subMenu: [
-     {action: '',title: 'mnuAertzte',icon:'mdi-medical-bag'},
+     {action: 'docs',title: 'mnuAertzte',icon:'mdi-medical-bag'},
      {action: '',title: 'mnuTeam'  ,icon:'mdi-account-multiple'},
-     {action: '',title: 'mnuTour'  ,icon:'mdi-magnify-plus-outline' },
+     {action: 'tour',title: 'mnuTour'  ,icon:'mdi-magnify-plus-outline' },
      
     ]
    },
    {
     id: 'Leistungen',
     title: 'mnuLeistungen',
+    action: 'services',
     subMenu: [
      {action: '',title: 'srv_implantologie', icon:'mdi-account-wrench'},
      {action: '',title: 'srv_chirurgische', icon:'mdi-account-wrench'},

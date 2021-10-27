@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import MainBoard from '../components/MainBoard.vue'
+import Doctors from '../components/Doctors.vue'
+import Services from '../components/Services.vue'
+import Tour from '../components/Tour.vue'
 
 Vue.use(VueRouter)
 
@@ -9,7 +12,23 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'Home',
     component: MainBoard
-  }
+  },
+  {
+    path: '/docs',
+    name: 'Doctors',
+    component: Doctors
+  },
+  {
+    path: '/services',
+    name: 'Services',
+    component: Services
+  },
+  {
+    path: '/tour',
+    name: 'Tour',
+    component: Tour
+  },
+
 ]
 
 const router = new VueRouter({

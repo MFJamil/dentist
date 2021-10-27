@@ -1,72 +1,65 @@
 <template>
-    <v-container  style="text-align: center;">
-        <h1 class="section-title">{{$i18n.t('praxisTeam')}}</h1>
+
+    <div class="imagePage">
+        <h1 class="section-title">{{$i18n.t('titleTour')}}</h1>
+        <br />
         <br />
 
-        <div v-if="!isMobile">
-            <v-row>
-                <v-col v-for="(doc,id) in doctors" :key="id" :id="id">
-                    <v-card
-                        class="mx-auto text-center"
-                        max-width="250"
-                        outlined
-                        shaped
-                        flat
-                    >
-                    <v-responsive class="pt-4">
-                        <v-avatar size="150" rounded class="grey lighten-2">
-                        <img
-                        :src="doc.pic"
-                        height="150px"
-                        
-                        />
-                        </v-avatar>
-                    </v-responsive>
-
-                        <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
-                        {{$i18n.t(doc.name)}}
-                        </v-card-title>
-
-                        <v-card-subtitle style="text-weight:bold !important;">
-                        {{$i18n.t(doc.position)}}
-                        </v-card-subtitle>
-                    </v-card>
-                </v-col>
-            </v-row>
+    <div  class="imageCont">
+        <div v-for="img in images" :key="img.name" class="imageDiv">
+            <v-fade-transition >
+                <img :src="img.pic" class="timage"  @click="showImages=true" />
+            </v-fade-transition>
         </div>
-        <div v-if="isMobile">
-            <v-row v-for="(doc,id) in doctors" :key="id" :id="id">
-                <v-col >
-                    <v-card
-                        class="mx-auto text-center"
-                        max-width="250"
-                        outlined
-                        shaped
-                        flat
 
-                    >
-                    <v-responsive class="pt-4">
-                        <v-avatar size="150" rounded class="grey lighten-2">
-                        <img
-                        :src="doc.pic"
-                        height="150px"
-                        
-                        />
-                        </v-avatar>
-                    </v-responsive>
+    </div>
+        <!--
+    <v-row align="center" justify="center">
+        <v-col
+        v-for="img in images"
+        :key="img.name"
+        class="d-flex child-flex"
+        cols="1"
+        >
 
-                        <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
-                        {{$i18n.t(doc.name)}}
-                        </v-card-title>
-
-                        <v-card-subtitle style="text-weight:bold !important;">
-                        {{$i18n.t(doc.position)}}
-                        </v-card-subtitle>
-                    </v-card>
-                </v-col>
+        <v-img
+            :src="img.pic"
+            :lazy-src="img.pic"
+            aspect-ratio="1"
+            transition="scale-transition"
+            class="grey lighten-2"
+            width="150px"
+        >
+            <template v-slot:placeholder>
+            <v-row
+                class="fill-height ma-0"
+                align="center"
+                justify="center"
+            >
+                <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+                ></v-progress-circular>
             </v-row>
-        </div>
-    </v-container>
+            </template>
+        </v-img>
+        </v-col>
+    </v-row>
+
+        -->
+    <v-dialog v-model="showImages">
+        
+        <v-carousel :cycle="slideShow" dark show-arrows-on-hover progress-color="white" height="80vh">
+            <v-carousel-item
+                v-for="(item,i) in images"
+                :key="i"
+                :src="item.pic"
+                
+                ></v-carousel-item>
+        </v-carousel>  
+        <!--<v-btn @click="slideShow=!slideShow" fab small><v-icon>mdi-play-box-outline</v-icon></v-btn>-->
+    </v-dialog>
+    </div>
 </template>
 
 <script  lang="ts">
@@ -79,22 +72,38 @@ export default class Tour extends Vue {
   @Prop()
   public isMobile! :boolean;
   @Prop()
-  public lang = "de";
-    public doctors = [
+  public lang!:string;
+  public showImages =false;
+  public slideShow=false;
+
+    public images = [
         {
-            name: 'dct_name_sa',
-            position: 'dct_pos_za',
-            pic: 'images/saad_1.jpg',
+            name: 'pic1',
+            pic: 'images/tour/cln_1.jpg',
         },
         {
-            name: 'dct_name_aa',
-            position: 'dct_pos_za',
-            pic: 'https://cdn.vuetifyjs.com/images/john.jpg',
+            name: 'pic2',
+            pic: 'images/tour/cln_2.jpg',
         },
         {
-            name: 'dct_name_aj',
-            position: 'dct_pos_za',
-            pic: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+            name: 'pic3',
+            pic: 'images/tour/cln_3.jpg',
+        },
+        {
+            name: 'pic4',
+            pic: 'images/tour/cln_4.jpg',
+        },
+        {
+            name: 'pic5',
+            pic: 'images/tour/cln_5.jpg',
+        },
+        {
+            name: 'pic6',
+            pic: 'images/tour/cln_6.jpg',
+        },
+        {
+            name: 'pic7',
+            pic: 'images/tour/cln_7.jpg',
         },
 
 
@@ -103,6 +112,51 @@ export default class Tour extends Vue {
 }
 </script>
 
-<style>
+<style scoped>
+.imagePage{
+    
+    width: 100vw;
+    height: 60vh;
+    text-align: center;
+    
+
+}
+
+
+.imageCont{
+    display: flex;
+    width: 100vw;
+    text-align: center;
+    justify-content: center;
+    height: 150px;
+    vertical-align: middle;
+
+}
+.imageDiv{
+    display: block;
+    height: 150px;
+    overflow: hidden;
+}
+
+.timage::before{
+    width:0px;
+    transition-duration: 500ms;
+}
+.timage{
+    border-radius: 8px;
+    cursor: zoom-in;
+    width: 80px;
+    transition-duration: 500ms;
+    margin: auto 25px;
+
+}
+.timage::after{
+    width:80px;
+}
+.timage:hover{
+    opacity: .5;
+    width: 90px !important;
+
+}
 
 </style>

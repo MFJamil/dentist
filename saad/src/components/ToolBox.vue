@@ -1,28 +1,11 @@
 <template>
-  <div id="toolBoxCont">
+  <div ref="toolBoxCont" id="toolBoxCont" v-click-outside="outsideClick">
       <!--<li class="['mr-2','em','em-flag-ae']"></li>-->
-      <div id="tlbIcon"><v-icon dark>mdi-web</v-icon></div>
+      <div id="tlbIcon" @click="handleVisibility" ><v-icon dark>{{panelIcon}}</v-icon></div>
       <div class="group"> 
             <li class="mr-2 em em-flag-sa langItem" @click="switchLang('ar');" ></li>
             <li class="mr-2 em em-flag-de langItem" @click="switchLang('de');"></li>
             <li class="mr-2 em em-flag-gb langItem" @click="switchLang('en');"></li>
-            <!--          
-       <v-btn-toggle
-          multiple
-        >
-
-          <v-btn class="btnTr">
-            <li class="mr-2 em em-flag-sa"></li>
-          </v-btn>
-          <v-btn class="btnTr">
-            <li class="mr-2 em em-flag-de"></li>
-          </v-btn>
-          <v-btn class="btnTr">
-            <li class="mr-2 em em-flag-gb"></li>
-          </v-btn>
-        </v-btn-toggle>
-          -->
-
       </div>
       
 
@@ -36,10 +19,36 @@ import vars from '../scss/vars.scss';
 
 @Component
 export default class Toolbox extends Vue {
+  $refs!:{
+    toolBoxCont:HTMLElement;
+  }
+
+    public isShown = false;
+    public panelIcon = 'mdi-web';
+    public toolBoxCont! :HTMLElement;
+
+
     switchLang(lang:string){
         themHandler.activateTheme(false,false,lang,this);
         vars.lang = lang;
         this.$emit('langUpdate',lang);
+
+    }
+    outsideClick(){
+      if (this.isShown) this.handleVisibility();
+
+    }
+    handleVisibility(){
+      console.log("Check Visibility is called " + this.isShown);
+      console.dir(this.$refs.toolBoxCont);
+      if (this.isShown){
+        this.panelIcon = 'mdi-web';
+        this.$refs.toolBoxCont.classList.remove("slideRight");
+      }else{
+        this.panelIcon = 'mdi-arrow-left-bold-outline';
+        this.$refs.toolBoxCont.classList.add("slideRight");
+      }
+      this.isShown = !this.isShown;
 
     }
 }
@@ -50,6 +59,7 @@ export default class Toolbox extends Vue {
         position: absolute;
         right: 5px;
         top: 10px;
+        cursor: pointer;
 
     }
     #toolBoxCont{
@@ -66,10 +76,16 @@ export default class Toolbox extends Vue {
         transition-duration: 1000ms;
         z-index: 50000;
 
+
     }
-    #toolBoxCont:hover{
+    #toolBoxCont:hover1{
         padding: 4px;
         left: -10px;
+
+    }
+    .slideRight{
+        padding: 4px !important;
+        left: -10px !important;
 
     }
     .group{

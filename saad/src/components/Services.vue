@@ -11,7 +11,7 @@
                         max-width="250"
                         outlined
                         shaped
-                        flat
+                        elevation="5"
                     >
                         <v-img
                         :src="service.pic"
@@ -63,7 +63,7 @@ export default class Services extends Vue {
   @Prop()
   public isMobile! :boolean;
   @Prop()
-  public lang = "de";
+  public lang!:string;
     public services = [
         {
             name: 'srv_implantologie',
