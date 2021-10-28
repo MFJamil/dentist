@@ -145,17 +145,18 @@
           v-for="(menu,id) in menus"
           :key="id"
           v-model="menu.active"
-
+          
           no-action
         >
         <template v-slot:activator>
           <v-list-item-content>
-            <v-list-item-title v-text="$i18n.t(menu.title)"></v-list-item-title>
+            <v-list-item-title @click="$emit('action',menu)" v-text="$i18n.t(menu.title)"></v-list-item-title>
           </v-list-item-content>
         </template>
         <v-list-item
           v-for="child in menu.subMenu"
           :key="child.title"
+          @click="$emit('action',child)"
         >
         <v-list-item-icon>
           <v-icon

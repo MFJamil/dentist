@@ -1,18 +1,20 @@
 <template>
-
+    <v-container fluid>
     <div class="imagePage">
         <h1 class="section-title">{{$i18n.t('titleTour')}}</h1>
         <br />
         <br />
 
-    <div  id="imageCont" ref="imageCont" :class="isMobile?'imageCont_mobile':''">
-        <div v-for="img in images" :key="img.name" class="imageDiv">
-            <v-fade-transition >
-                <img :src="img.pic" class="timage"  @click="showImages=true" />
-            </v-fade-transition>
-        </div>
+        <div  id="imageCont" ref="imageCont" :class="isMobile?'imageCont_mobile':''">
+            <div v-if="isMobile" class="imageWindow">
+                <div v-for="img in images" :key="img.name" class="imageDiv">
+                    <v-fade-transition >
+                        <img :src="img.pic" class="timage"  @click="showImages=true" />
+                    </v-fade-transition>
+                </div>
+            </div>
 
-    </div>
+        </div>
         <!--
     <v-row align="center" justify="center">
         <v-col
@@ -60,6 +62,7 @@
         <!--<v-btn @click="slideShow=!slideShow" fab small><v-icon>mdi-play-box-outline</v-icon></v-btn>-->
     </v-dialog>
     </div>
+    </v-container>
 </template>
 
 <script  lang="ts">
@@ -138,9 +141,13 @@ export default class Tour extends Vue {
 .imageCont_mobile{
     display: inline-table !important;
     width: 180px !important;
-    height: 100vh !important;
 }
+.imageWindow{
+    height: 65vh !important;
+    overflow-y: auto;
 
+
+}
 
 .imageDiv{
     display: block;
