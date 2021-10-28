@@ -1,5 +1,5 @@
 <template>
-    <v-container fluid>
+    <v-container fluid style="display: grid !important;justify-content: center;">
     <div class="imagePage">
         <h1 class="section-title">{{$i18n.t('titleTour')}}</h1>
         <br />
@@ -23,7 +23,6 @@
         </div>
         <div v-else>
             <v-btn icon depressed @click="showImages=true"><v-icon>mdi-image-multiple-outline</v-icon></v-btn> 
-
         </div>
 
         <!--
@@ -144,6 +143,7 @@ export default class Tour extends Vue {
     width: 70vw;
     height: 60vh;
     text-align: center;
+    
 }
 
 #imageCont{
@@ -153,6 +153,7 @@ export default class Tour extends Vue {
     justify-content: center;
     height: 150px;
     vertical-align: middle;
+    
 }
 
 .imageCont_mobile{
@@ -163,6 +164,7 @@ export default class Tour extends Vue {
 .imageWindow{
     height: 65vh !important;
     overflow-y: auto;
+    
 }
 
 .imageDiv{

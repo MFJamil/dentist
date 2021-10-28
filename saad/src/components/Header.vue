@@ -25,13 +25,18 @@
         <v-spacer></v-spacer>
         
       </v-system-bar>
+    
+    <!--  
+      src="https://picsum.photos/1920/1080?random"
+      -->
     <v-app-bar app
       
       color="primary"
       dark
       shrink-on-scroll
       prominent
-      src="https://picsum.photos/1920/1080?random"
+      
+      :src=getHeaderPic()
       fade-img-on-scroll
       scroll-target="#pageBody"
       scroll-threshold="500"
@@ -216,6 +221,12 @@ export default class Header extends Vue {
   public lang = "de";
 
   public showMobileMenu = false;
+  public getHeaderPic():string{
+    let path = 'images/header/hpic_' + Math.floor(Math.random() * 9) + '.jpg';
+    console.log("Header pic : " + path);
+    return path;
+
+  }
   public openedMenu!:string;
       mounted(){
         console.log("Vars read : " + vars.lang);
