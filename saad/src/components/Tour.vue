@@ -5,7 +5,7 @@
         <br />
         <br />
 
-        <div v-if="isMobile" id="imageCont" ref="imageCont" :class="isMobile?'imageCont_mobile':''">
+        <div v-if="!slideOnly && isMobile" id="imageCont" ref="imageCont" :class="isMobile?'imageCont_mobile':''">
             <div  class="imageWindow">
                 <div v-for="img in images" :key="img.name" class="imageDiv">
                     <v-fade-transition >
@@ -14,12 +14,16 @@
                 </div>
             </div>
         </div>
-        <div v-else id="imageCont">
+        <div v-else-if="!slideOnly && !isMobile" id="imageCont">
             <div v-for="img in images" :key="img.name" class="imageDiv">
                 <v-fade-transition>
                     <img :src="img.pic" class="timage"  @click="showImages=true" />
                 </v-fade-transition>
             </div>
+        </div>
+        <div v-else>
+            <v-btn icon depressed @click="showImages=true"><v-icon>mdi-image-multiple-outline</v-icon></v-btn> 
+
         </div>
 
         <!--
@@ -75,7 +79,7 @@
 <script  lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-
+import webUtils from '../utils/WebUtils';
 @Component
 export default class Tour extends Vue {
  $refs!:{
@@ -86,7 +90,17 @@ export default class Tour extends Vue {
   public isMobile! :boolean;
   @Prop()
   public lang!:string;
+  @Prop({default:false})
+  public slideOnly!:boolean;
+  
+
   public showImages =false;
+
+
+  mounted(){
+      if (this.isMobile===undefined) this.$emit('update:isMobile',webUtils.isMobile(this));
+      console.log("Tour Panel activated with Mobile value set to :" + this.isMobile);
+  }
   public slideShow=false;
 
     public images = [
