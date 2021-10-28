@@ -1,6 +1,6 @@
 <template>
-    <v-container  style="text-align: center;">
-        <h1 class="section-title">{{$i18n.t('praxisTeam')}}</h1>
+    <v-container  style="text-align: center;" fluid>
+        <h1 class="section-title">{{$i18n.t('praxisDocs')}}</h1>
         <br />
 
         <div v-if="!isMobile">

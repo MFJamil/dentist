@@ -276,7 +276,7 @@ public menus=[            {
     title: 'mnuKontakt',
     subMenu: [
      {action: '',title: 'mnuStandort'      ,icon: 'mdi-map-marker'},
-     {action: '',title: 'mnuOffnungsZeiten',icon: 'mdi-clock-time-five-outline'},
+     {action: 'timings',title: 'mnuOffnungsZeiten',icon: 'mdi-clock-time-five-outline'},
     ]
    },
    {
