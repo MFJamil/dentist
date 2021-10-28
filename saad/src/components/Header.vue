@@ -222,7 +222,7 @@ export default class Header extends Vue {
 
   public showMobileMenu = false;
   public getHeaderPic():string{
-    let path = 'images/header/hpic_' + Math.floor(Math.random() * 9) + '.jpg';
+    let path = 'images/header/hpic_' + Math.floor(Math.random() * 10) + '.jpg';
     console.log("Header pic : " + path);
     return path;
 
@@ -249,7 +249,7 @@ public menus=[            {
     title: 'mnuPraxis',
     subMenu: [
      {action: 'docs',title: 'mnuAertzte',icon:'mdi-medical-bag'},
-     {action: '',title: 'mnuTeam'  ,icon:'mdi-account-multiple'},
+     {action: 'team',title: 'mnuTeam'  ,icon:'mdi-account-multiple'},
      {action: 'tour',title: 'mnuTour'  ,icon:'mdi-magnify-plus-outline' },
      
     ]

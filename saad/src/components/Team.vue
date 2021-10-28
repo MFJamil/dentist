@@ -83,19 +83,19 @@ export default class Team extends Vue {
   public lang!:string;
     public team = [
         {
-            name: 'dct_name_sa',
-            position: 'dct_pos_za',
-            pic: 'images/saad_1.jpg',
+            name: 'team_name_ma1',
+            position: 'team_pos_zf',
+            pic: 'images/no-profile-pic.jpg',
         },
         {
-            name: 'dct_name_aa',
-            position: 'dct_pos_za',
-            pic: 'https://cdn.vuetifyjs.com/images/john.jpg',
+            name: 'team_name_ma1',
+            position: 'team_pos_zf',
+            pic: 'images/no-profile-pic.jpg',
         },
         {
-            name: 'dct_name_aj',
-            position: 'dct_pos_za',
-            pic: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+            name: 'team_name_ma1',
+            position: 'team_pos_ab',
+            pic: 'images/no-profile-pic.jpg',
         },
 
 

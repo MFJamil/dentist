@@ -21,6 +21,9 @@ export const messages ={
         srv_chirurgische: 'Chirurgische Leistungen',
         srv_funkDiag:'Funktionsdiagnostik',
         titleTour:'Rundgang durch die Klinik',
+        team_pos_ab:'Auszubildende',
+        team_pos_zf:'Zahnmedizinische Fachangestellte',
+        team_name_ma1:'Mustermann Maximilian',
 
     },
     'ar':{
@@ -45,6 +48,9 @@ export const messages ={
         srv_chirurgische: 'الخدمات الجراحية',
         srv_funkDiag:'التشخيصات الوظيفية',
         titleTour: 'جولة في أرجاء العيادة ',
+        team_pos_ab:'المتدرب',
+        team_pos_zf:'مساعد طبيب الاسنان',
+        team_name_ma1:'نموذج أسم',
     },
     'en':{
         appTitle: 'Dentist clinic Kundakji & Partner',
@@ -68,6 +74,9 @@ export const messages ={
         srv_chirurgische: 'Surgical services',
         srv_funkDiag:'Functional diagnostics',
         titleTour: 'Tour around the clinic',
+        team_pos_ab:'trainee',
+        team_pos_zf:'Dental assistant',
+        team_name_ma1:'Sample Maximilian',
     },
 
 }

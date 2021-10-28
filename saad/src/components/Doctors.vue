@@ -90,12 +90,12 @@ export default class Doctors extends Vue {
         {
             name: 'dct_name_aa',
             position: 'dct_pos_za',
-            pic: 'https://cdn.vuetifyjs.com/images/john.jpg',
+            pic: 'images/no-profile-pic.jpg',
         },
         {
             name: 'dct_name_aj',
             position: 'dct_pos_za',
-            pic: 'https://cdn.vuetifyjs.com/images/lists/2.jpg',
+            pic: 'images/no-profile-pic.jpg',
         },
 
 

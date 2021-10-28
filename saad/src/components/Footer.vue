@@ -118,7 +118,8 @@ export default class Footer extends Vue {
             },
             {
               title: 'mnuTeam',
-              icon: 'mdi-account-multiple'
+              icon: 'mdi-account-multiple',
+              action: 'team'
             },
             {
               title: 'mnuTour',

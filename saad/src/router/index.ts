@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import MainBoard from '../components/MainBoard.vue'
 import Doctors from '../components/Doctors.vue'
+import Team from '../components/Team.vue'
 import Services from '../components/Services.vue'
 import Tour from '../components/Tour.vue'
 
@@ -18,6 +19,12 @@ const routes: Array<RouteConfig> = [
     name: 'Doctors',
     component: Doctors
   },
+  {
+    path: '/team',
+    name: 'Team',
+    component: Team
+  },
+
   {
     path: '/services',
     name: 'Services',
