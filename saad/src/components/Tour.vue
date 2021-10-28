@@ -5,7 +5,7 @@
         <br />
         <br />
 
-    <div  class="imageCont">
+    <div  id="imageCont" ref="imageCont" :class="isMobile?'imageCont_mobile':''">
         <div v-for="img in images" :key="img.name" class="imageDiv">
             <v-fade-transition >
                 <img :src="img.pic" class="timage"  @click="showImages=true" />
@@ -68,6 +68,9 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
 export default class Tour extends Vue {
+ $refs!:{
+     imageCont:HTMLElement;
+ }
 
   @Prop()
   public isMobile! :boolean;
@@ -123,15 +126,22 @@ export default class Tour extends Vue {
 }
 
 
-.imageCont{
+#imageCont{
     display: flex;
     width: 100vw;
     text-align: center;
     justify-content: center;
     height: 150px;
     vertical-align: middle;
-
 }
+
+.imageCont_mobile{
+    display: inline-table !important;
+    width: 180px !important;
+    height: 100vh !important;
+}
+
+
 .imageDiv{
     display: block;
     height: 150px;
