@@ -5,16 +5,23 @@
         <br />
         <br />
 
-        <div  id="imageCont" ref="imageCont" :class="isMobile?'imageCont_mobile':''">
-            <div v-if="isMobile" class="imageWindow">
+        <div v-if="isMobile" id="imageCont" ref="imageCont" :class="isMobile?'imageCont_mobile':''">
+            <div  class="imageWindow">
                 <div v-for="img in images" :key="img.name" class="imageDiv">
                     <v-fade-transition >
                         <img :src="img.pic" class="timage"  @click="showImages=true" />
                     </v-fade-transition>
                 </div>
             </div>
-
         </div>
+        <div v-else id="imageCont">
+            <div v-for="img in images" :key="img.name" class="imageDiv">
+                <v-fade-transition>
+                    <img :src="img.pic" class="timage"  @click="showImages=true" />
+                </v-fade-transition>
+            </div>
+        </div>
+
         <!--
     <v-row align="center" justify="center">
         <v-col
@@ -120,18 +127,14 @@ export default class Tour extends Vue {
 
 <style scoped>
 .imagePage{
-    
-    width: 100vw;
+    width: 70vw;
     height: 60vh;
     text-align: center;
-    
-
 }
-
 
 #imageCont{
     display: flex;
-    width: 100vw;
+    width: 70vw;
     text-align: center;
     justify-content: center;
     height: 150px;
@@ -142,11 +145,10 @@ export default class Tour extends Vue {
     display: inline-table !important;
     width: 180px !important;
 }
+
 .imageWindow{
     height: 65vh !important;
     overflow-y: auto;
-
-
 }
 
 .imageDiv{
