@@ -10,10 +10,14 @@
         <v-icon>mdi-email</v-icon>
         &nbsp; {{ $i18n.t('actNachricht') }}
         <v-spacer></v-spacer>
-        <div class="d-none d-sm-flex">
-        <v-icon>mdi-clock-time-eight</v-icon>
-         &nbsp; Mo.Di.Do (9 - 13) + (15 - 18)  |  Mi. (9 - 14:30) | Fr. (8 - 13)
+        <div v-if="isMobile"  @click="$emit('action','/')"> 
+          <v-icon> mdi-home</v-icon>
         </div>
+        <div v-else class="d-none d-sm-flex">
+          <v-icon>mdi-clock-time-eight</v-icon>
+          &nbsp; Mo.Di.Do (9 - 13) + (15 - 18)  |  Mi. (9 - 14:30) | Fr. (8 - 13)
+        </div>
+
          <v-spacer></v-spacer>
         <a href="tel:06131229816"><v-icon>mdi-phone-classic</v-icon></a>
         &nbsp; 06131-229816
