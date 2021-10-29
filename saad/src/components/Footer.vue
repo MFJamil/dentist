@@ -182,7 +182,8 @@ export default class Footer extends Vue {
             },
             {
               title: 'mnuOffnungsZeiten',
-              icon: 'mdi-clock-time-five-outline'
+              icon: 'mdi-clock-time-five-outline',
+              action: 'timings'
             },
           ]
       },
