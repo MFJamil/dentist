@@ -38,6 +38,8 @@ export const messages ={
         feedback_2:'Das die Ärzte auf Arabisch sprechen stört mich persönlich überhaupt nicht.',
         feedback_3:'Ich war bei Herr Faress al Maghribi (Partner von Herr Kundakji) sehr guter Arzt.',
         titleOrt:'Der Standort',
+        titleEmergency:'Was ist im Notfall zu tun?',
+        prg_emergency:'Sollten Sie außerhalb der Sprechzeiten oder an Sonn- und Feiertagen starke Zahnschmerzen oder andere akute Beschwerden bekommen, dann entnehmen Sie die Nummer der diensthabenden Kollegen/innen aus der örtlichen Tagespresse (Hanauer Anzeiger oder Hanauer Post)',
 
 
     },
@@ -80,6 +82,8 @@ export const messages ={
         feedback_2:'أن يتحدث الأطباء باللغة العربية لا يزعجني شخصيًا على الإطلاق.',
         feedback_3:'كان طبيبا جيدا جدا السيد فارس المغربي (شريك السيد قندقجى)',
         titleOrt:'الموقع',
+        titleEmergency:'ماذا تفعل في حالة الطوارئ؟',
+        prg_emergency:'إذا كنت تعاني من ألم شديد في الأسنان أو شكاوى حادة أخرى خارج ساعات العمل أو أيام الأحد والعطلات الرسمية ، فيمكنك العثور على عدد الزملاء المناوبين من الصحافة اليومية المحلية (Hanauer Anzeiger أو Hanauer Post)',
     },
     'en':{
         appTitle: 'Dentist clinic Kundakji & Partner',
@@ -120,6 +124,8 @@ export const messages ={
         feedback_2:'That the doctors speak in Arabic doesn\'t bother me personally at all.',
         feedback_3:'Mr. Faress al Maghribi (partner of Mr. Kundakji) was a very good doctor ',
         titleOrt:'The Location',
+        titleEmergency:'What to do in an emergency?',
+        prg_emergency:'If you get severe toothache or other acute complaints outside of office hours or on Sundays and public holidays, you can find the number of the colleagues on duty from the local daily press (Hanauer Anzeiger or Hanauer Post)',
     },
 
 }

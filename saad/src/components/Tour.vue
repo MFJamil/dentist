@@ -25,40 +25,6 @@
             <v-btn icon depressed @click="showImages=true"><v-icon>mdi-image-multiple-outline</v-icon></v-btn> 
         </div>
 
-        <!--
-    <v-row align="center" justify="center">
-        <v-col
-        v-for="img in images"
-        :key="img.name"
-        class="d-flex child-flex"
-        cols="1"
-        >
-
-        <v-img
-            :src="img.pic"
-            :lazy-src="img.pic"
-            aspect-ratio="1"
-            transition="scale-transition"
-            class="grey lighten-2"
-            width="150px"
-        >
-            <template v-slot:placeholder>
-            <v-row
-                class="fill-height ma-0"
-                align="center"
-                justify="center"
-            >
-                <v-progress-circular
-                indeterminate
-                color="grey lighten-5"
-                ></v-progress-circular>
-            </v-row>
-            </template>
-        </v-img>
-        </v-col>
-    </v-row>
-
-        -->
     <v-dialog v-model="showImages">
         
         <v-carousel :cycle="slideShow" dark show-arrows-on-hover progress-color="white" height="80vh">

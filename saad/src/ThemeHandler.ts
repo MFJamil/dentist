@@ -48,6 +48,8 @@ export class ThemeHandler{
                 { name:'--feedback-small'                  ,value:'12px'},
                 { name:'--feedback-big'                    ,value:'22px'},
                 { name:'--feedback-time'                   ,value:'8s'},
+                { name:'--gmap-height'                     ,value:'500px'},
+                { name:'--gmap-width'                      ,value:'600px'},
             
             ],
         },        
@@ -66,6 +68,8 @@ export class ThemeHandler{
                 { name:'--feedback-small'                  ,value:'6px'},
                 { name:'--feedback-big'                    ,value:'10px'},
                 { name:'--feedback-time'                   ,value:'8s'},
+                { name:'--gmap-height'                     ,value:'400px'},
+                { name:'--gmap-width'                      ,value:'310px'},
 
             ],
         }, 
@@ -84,6 +88,8 @@ export class ThemeHandler{
                 { name:'--feedback-small'                  ,value:'16px'},
                 { name:'--feedback-big'                    ,value:'28px'},
                 { name:'--feedback-time'                   ,value:'8s'},
+                { name:'--gmap-height'                     ,value:'500px'},
+                { name:'--gmap-width'                      ,value:'600px'},
 
             ],
         },        
@@ -102,6 +108,8 @@ export class ThemeHandler{
                 { name:'--feedback-small'                  ,value:'6px'},
                 { name:'--feedback-big'                    ,value:'12px'},
                 { name:'--feedback-time'                   ,value:'8s'},
+                { name:'--gmap-height'                     ,value:'400px'},
+                { name:'--gmap-width'                      ,value:'310px'},
 
             ],
         }, 
@@ -120,6 +128,8 @@ export class ThemeHandler{
                 { name:'--feedback-small'                  ,value:'12px'},
                 { name:'--feedback-big'                    ,value:'22px'},
                 { name:'--feedback-time'                   ,value:'8s'},
+                { name:'--gmap-height'                     ,value:'500px'},
+                { name:'--gmap-width'                      ,value:'600px'},
 
             ],
         },        
@@ -138,6 +148,8 @@ export class ThemeHandler{
                 { name:'--feedback-small'                  ,value:'6px'},
                 { name:'--feedback-big'                    ,value:'12px'},
                 { name:'--feedback-time'                   ,value:'8s'},
+                { name:'--gmap-height'                     ,value:'400px'},
+                { name:'--gmap-width'                      ,value:'310px'},
 
             ],
         }, 

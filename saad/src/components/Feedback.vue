@@ -5,17 +5,6 @@
                 <p ref="feedbackText" class="ft_small">
                     {{messageText}}
                 </p>
-                <!--
-                <p style="margin-top:30px;">
-                    "{{$i18n.t('feedback_1')}}"
-                </p>
-                <p>
-                    "{{$i18n.t('feedback_2')}}"
-                </p>
-                <p>
-                    "{{$i18n.t('feedback_3')}}"
-                </p>
-                -->
   </div>
 </template>
 

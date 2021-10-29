@@ -30,12 +30,12 @@
                 <v-sheet
                     color="white"
                     elevation="6"
-                    height="500"
-                    width="600"
+                    :height="mapHeight"
+                    :width="mapWidth"
                     >
                     <div class="mapouter">
                         <div class="gmap_canvas">
-                            <iframe width="600" height="500" id="gmap_canvas"
+                            <iframe :width="mapWidth" :height="mapHeight" id="gmap_canvas"
                             src="https://maps.google.com/maps?q=kundakji%20und%20par&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                             </iframe>
                             <a href="https://vincheckeurope.eu">vincheckeurope.eu</a>
@@ -46,72 +46,7 @@
                 </v-sheet>
             </v-col>
         </v-row>
-        <!--
-        <div v-if="!isMobile">
-            <v-row>
-                <v-col v-for="(doc,id) in doctors" :key="id" :id="id">
-                    <v-card
-                        class="mx-auto text-center"
-                        max-width="250"
-                        outlined
-                        elevation="5"
-                        shaped
-                        
-                    >
-                    <v-responsive class="pt-4">
-                        <v-avatar size="150" rounded class="grey lighten-2">
-                        <img
-                        :src="doc.pic"
-                        height="150px"
-                        
-                        />
-                        </v-avatar>
-                    </v-responsive>
 
-                        <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
-                        {{$i18n.t(doc.name)}}
-                        </v-card-title>
-
-                        <v-card-subtitle style="text-weight:bold !important;">
-                        {{$i18n.t(doc.position)}}
-                        </v-card-subtitle>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </div>
-        <div v-if="isMobile">
-            <v-row v-for="(doc,id) in doctors" :key="id" :id="id">
-                <v-col >
-                    <v-card
-                        class="mx-auto text-center"
-                        max-width="250"
-                        outlined
-                        shaped
-                        
-
-                    >
-                    <v-responsive class="pt-4">
-                        <v-avatar size="150" rounded class="grey lighten-2">
-                        <img
-                        :src="doc.pic"
-                        height="150px"
-                        
-                        />
-                        </v-avatar>
-                    </v-responsive>
-
-                        <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
-                        {{$i18n.t(doc.name)}}
-                        </v-card-title>
-
-                        <v-card-subtitle style="text-weight:bold !important;">
-                        {{$i18n.t(doc.position)}}
-                        </v-card-subtitle>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </div>
-        -->
     </v-container>
 </template>
 
@@ -126,6 +61,8 @@ export default class Location extends Vue {
   public isMobile! :boolean;
   @Prop()
   public lang!:string;
+  public mapHeight = this.isMobile?400:500;
+  public mapWidth = this.isMobile?310:600;
     public doctors = [
         {
             name: 'dct_name_sa',
@@ -150,6 +87,6 @@ export default class Location extends Vue {
 </script>
 
 <style>
-.mapouter{position:relative;text-align:right;height:500px;width:600px;}
-.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+.mapouter{position:relative;text-align:right;height:var(--gmap-height);width:var(--gmap-width);}
+.gmap_canvas {overflow:hidden;background:none!important;height:var(--gmap-height);width:var(--gmap-width);}
 </style>
