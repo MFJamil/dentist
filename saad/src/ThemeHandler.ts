@@ -42,9 +42,13 @@ export class ThemeHandler{
                 { name:'--app-bar-title-size'              ,value:'24px'},
                 { name:'--app-bar-title-compressed-size'   ,value:'24px'},
                 { name:'--app-bar-title-left'              ,value:'52px'},
-                { name:'--footer-link-size'          ,value:'12px'},
-                { name:'--footer-title-size'         ,value:'14px'},
-                { name: this.PROP_KFW_LOGO         ,value:'kfw_blue.png'},
+                { name:'--footer-link-size'                ,value:'12px'},
+                { name:'--footer-title-size'               ,value:'14px'},
+                { name: this.PROP_KFW_LOGO                 ,value:'kfw_blue.png'},
+                { name:'--feedback-small'                  ,value:'12px'},
+                { name:'--feedback-big'                    ,value:'24px'},
+                { name:'--feedback-time'                   ,value:'8s'},
+            
             ],
         },        
         {
@@ -59,6 +63,10 @@ export class ThemeHandler{
                 { name:'--footer-link-size'          ,value:'10px'},
                 { name:'--footer-title-size'         ,value:'12px'},
                 { name:this.PROP_KFW_LOGO            ,value:'kfw_blue.png'},
+                { name:'--feedback-small'                  ,value:'6px'},
+                { name:'--feedback-big'                    ,value:'12px'},
+                { name:'--feedback-time'                   ,value:'8s'},
+
             ],
         }, 
         {
@@ -73,6 +81,10 @@ export class ThemeHandler{
                 { name:'--footer-link-size'          ,value:'12px'},
                 { name:'--footer-title-size'         ,value:'14px'},
                 { name: this.PROP_KFW_LOGO         ,value:'kfw_blue.png'},
+                { name:'--feedback-small'                  ,value:'12px'},
+                { name:'--feedback-big'                    ,value:'24px'},
+                { name:'--feedback-time'                   ,value:'8s'},
+
             ],
         },        
         {
@@ -87,6 +99,10 @@ export class ThemeHandler{
                 { name:'--footer-link-size'          ,value:'10px'},
                 { name:'--footer-title-size'         ,value:'12px'},
                 { name:this.PROP_KFW_LOGO            ,value:'kfw_blue.png'},
+                { name:'--feedback-small'                  ,value:'6px'},
+                { name:'--feedback-big'                    ,value:'12px'},
+                { name:'--feedback-time'                   ,value:'8s'},
+
             ],
         }, 
         {
@@ -101,6 +117,10 @@ export class ThemeHandler{
                 { name:'--footer-link-size'          ,value:'12px'},
                 { name:'--footer-title-size'         ,value:'14px'},
                 { name: this.PROP_KFW_LOGO         ,value:'kfw_blue.png'},
+                { name:'--feedback-small'                  ,value:'12px'},
+                { name:'--feedback-big'                    ,value:'24px'},
+                { name:'--feedback-time'                   ,value:'8s'},
+
             ],
         },        
         {
@@ -115,6 +135,10 @@ export class ThemeHandler{
                 { name:'--footer-link-size'          ,value:'10px'},
                 { name:'--footer-title-size'         ,value:'12px'},
                 { name:this.PROP_KFW_LOGO            ,value:'kfw_blue.png'},
+                { name:'--feedback-small'                  ,value:'6px'},
+                { name:'--feedback-big'                    ,value:'12px'},
+                { name:'--feedback-time'                   ,value:'8s'},
+
             ],
         }, 
 

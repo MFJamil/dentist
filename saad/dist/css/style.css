@@ -1,6 +1,9 @@
 :root{
     --app-bar-title-size: 24px;
     --app-lang: 'de';
+    --feedback-small: 6px;
+    --feedback-big: 12px;
+    --feedback-time: 8s;
     
 }
 

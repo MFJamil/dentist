@@ -75,31 +75,31 @@ export default class Timings extends Vue {
         {
           id:1,
           name: 'day_Mon',
-          time: ['9:00 - 13:00','15:00 - 18:00'],
+          time: ['09:00 - 13:00','15:00 - 18:00'],
           color: 'primary lighten-1',
         },
         {
           id:2,
           name: 'day_Tus',
-          time: ['9:00 - 13:00','15:00 - 18:00'],
+          time: ['09:00 - 13:00','15:00 - 18:00'],
           color: 'primary lighten-1',
         },
         {
             id:3,
           name: 'day_Wed',
-          time: ['9:00 - 13:00'],
+          time: ['09:00 - 13:00'],
           color: 'primary lighten-1',
         },
         {
             id:4,
           name: 'day_Thu',
-          time: ['9:00 - 13:00','15:00 - 18:00'],
+          time: ['09:00 - 13:00','15:00 - 18:00'],
           color: 'green',
         },
         {
             id:5,
           name: 'day_Fri',
-          time: ['9:00 - 13:00'],
+          time: ['09:00 - 13:00'],
           color: 'primary lighten-1',
         },
         {

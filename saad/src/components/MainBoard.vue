@@ -2,18 +2,7 @@
     <v-container  style="text-align: center;">
         <v-row>
             <v-col cols="24" >
-
-                <h3 style="direction:rtl;margin-top:250px;font-size:30px;">{{$i18n.t('txt_feedback')}}</h3>
-                <p style="margin-top:30px;">
-                    "{{$i18n.t('feedback_1')}}"
-                </p>
-                <p>
-                    "{{$i18n.t('feedback_2')}}"
-                </p>
-                <p>
-                    "{{$i18n.t('feedback_3')}}"
-                </p>
-                
+                <feedback />
             </v-col>
             <v-col>
                 <Timings />
@@ -60,6 +49,7 @@ import Team from './Team.vue';
 import Services from './Services.vue';
 import Tour from './Tour.vue';
 import Timings from './Timings.vue';
+import Feedback from './Feedback.vue';
 
 @Component({
   components: {
@@ -67,6 +57,7 @@ import Timings from './Timings.vue';
     Team,
     Services,
     Timings,
+    Feedback,
     Tour
   }, 
 })

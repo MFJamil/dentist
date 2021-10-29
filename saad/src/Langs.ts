@@ -29,7 +29,7 @@ export const messages ={
         day_Tus:'Dienstag',
         day_Wed:'Mittwoch',
         day_Thu:'Donnerstag',
-        day_Fri:'Feitag',
+        day_Fri:'Freitag',
         day_Sat:'Samstag',
         day_Sun:'Sonntag',
         txt_Closed:'geschlossen',

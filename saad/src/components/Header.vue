@@ -221,8 +221,9 @@ export default class Header extends Vue {
   public lang = "de";
 
   public showMobileMenu = false;
+  public totalPics = 11;
   public getHeaderPic():string{
-    let path = 'images/header/hpic_' + Math.floor(Math.random() * 10) + '.jpg';
+    let path = 'images/header/hpic_' + Math.floor(Math.random() * this.totalPics) + '.jpg';
     console.log("Header pic : " + path);
     return path;
 
