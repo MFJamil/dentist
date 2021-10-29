@@ -6,7 +6,7 @@
             <v-col style="justify-content:left;text-center:left;">
                 <v-card
                     class="mx-auto"
-                    max-width="360"
+                    max-width="310"
                     elevation="6"
 
                 >
@@ -15,7 +15,7 @@
                     height="340px"
                     ></v-img>
 
-                    <v-card-title>
+                    <v-card-title style="font-size: 16px;justify-content:center !important;">
                      Zahnarzt Praxis Kundakji &amp; Parnter
                     </v-card-title>
 
