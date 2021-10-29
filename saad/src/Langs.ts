@@ -37,6 +37,7 @@ export const messages ={
         feedback_1:'Und immer ohne Angst einfach hingehen und man wird schmerzfrei behandelt.',
         feedback_2:'Das die Ärzte auf Arabisch sprechen stört mich persönlich überhaupt nicht.',
         feedback_3:'Ich war bei Herr Faress al Maghribi (Partner von Herr Kundakji) sehr guter Arzt.',
+        titleOrt:'Der Standort',
 
 
     },
@@ -78,7 +79,7 @@ export const messages ={
         feedback_1:'دائمًا اذهب إلى هناك دون خوف وستتم معاملتك بدون ألم',
         feedback_2:'أن يتحدث الأطباء باللغة العربية لا يزعجني شخصيًا على الإطلاق.',
         feedback_3:'كان طبيبا جيدا جدا السيد فارس المغربي (شريك السيد قندقجى)',
-        
+        titleOrt:'الموقع',
     },
     'en':{
         appTitle: 'Dentist clinic Kundakji & Partner',
@@ -118,7 +119,7 @@ export const messages ={
         feedback_1:'And always just go there without fear and you will be treated painlessly.',
         feedback_2:'That the doctors speak in Arabic doesn\'t bother me personally at all.',
         feedback_3:'Mr. Faress al Maghribi (partner of Mr. Kundakji) was a very good doctor ',
-
+        titleOrt:'The Location',
     },
 
 }

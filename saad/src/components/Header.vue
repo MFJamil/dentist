@@ -276,13 +276,14 @@ public menus=[            {
     id: 'Kontakt',
     title: 'mnuKontakt',
     subMenu: [
-     {action: '',title: 'mnuStandort'      ,icon: 'mdi-map-marker'},
+     {action: 'location',title: 'mnuStandort'      ,icon: 'mdi-map-marker'},
      {action: 'timings',title: 'mnuOffnungsZeiten',icon: 'mdi-clock-time-five-outline'},
     ]
    },
    {
     id: 'Notdienst',
     title: 'mnuNotdienst',
+    action: 'emergency'
    },
 
 ];

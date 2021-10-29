@@ -6,6 +6,8 @@ import Team from '../components/Team.vue'
 import Services from '../components/Services.vue'
 import Tour from '../components/Tour.vue'
 import Timings from '../components/Timings.vue'
+import Location from '../components/Location.vue'
+import Emergency from '../components/Emergency.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +43,18 @@ const routes: Array<RouteConfig> = [
     name: 'Timings',
     component: Timings
   },
+
+  {
+    path: '/location',
+    name: 'Location',
+    component: Location
+  },
+  {
+    path: '/emergency',
+    name: 'Emergency',
+    component: Emergency
+  },
+  
 
 ]
 

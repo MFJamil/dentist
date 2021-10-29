@@ -94,7 +94,7 @@ import { Component, Vue, Prop } from 'vue-property-decorator';
 
 @Component
 export default class Footer extends Vue {
-
+  // url: 'https://www.google.com/maps/place/Zahnarzt+Praxis+Kundakji+%26+Partner/@49.9999337,8.2611765,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x22cbe0caf65b9e9!8m2!3d49.9999649!4d8.2633183'
   @Prop()
   public isMobile! :boolean;
   @Prop()
@@ -178,7 +178,7 @@ export default class Footer extends Vue {
             {
               title: 'mnuStandort',
               icon: 'mdi-map-marker',
-              url: 'https://www.google.com/maps/place/Zahnarzt+Praxis+Kundakji+%26+Partner/@49.9999337,8.2611765,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0x22cbe0caf65b9e9!8m2!3d49.9999649!4d8.2633183'
+              action: 'location',
             },
             {
               title: 'mnuOffnungsZeiten',

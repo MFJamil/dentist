@@ -1,6 +1,6 @@
 <template>
-  <div>
-                <h3 style="direction:rtl;margin-top:250px;font-size:30px;">{{$i18n.t('txt_feedback')}}</h3>
+  <div style="width:100%;">
+                <h3 style="direction:rtl;margin-top:250px;font-size:30px;color:var(--v-primary-base);">{{$i18n.t('txt_feedback')}}</h3>
 
                 <p ref="feedbackText" class="ft_small">
                     {{messageText}}
@@ -74,6 +74,7 @@ export default class Feedback extends Vue {
     line-height: 1.3 !important;
     font-size: 20px;
     height: 80px;
+    
     animation: fadeIn ease var(--feedback-time) infinite;
     -webkit-animation: fadeIn ease var(--feedback-time) infinite;
     -moz-animation: fadeIn ease var(--feedback-time) infinite;
@@ -87,7 +88,7 @@ export default class Feedback extends Vue {
   }
   100% {
     opacity:1;
-    font-size: 20px;
+    font-size: var(--feedback-big);
   }
 }
 
