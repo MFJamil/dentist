@@ -3,7 +3,7 @@
   <v-card 
   outlined
   elevation="5"
-  width="400">
+  :width="mob?'96vw':'400'">
         <v-img
           height="150px"
           src="images/time.jpg"
@@ -49,7 +49,7 @@
 <script  lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
 
-
+import webUtils from '../utils/WebUtils';
 @Component
 export default class Timings extends Vue {
 
@@ -57,9 +57,10 @@ export default class Timings extends Vue {
   public isMobile! :boolean;
   @Prop()
   public lang!:string;
-
+  public mob = false;
   mounted(){
       console.log("Current day is : " + new Date().getDay());
+      this.mob = webUtils.isMobile(this);
   }
 
   getDayColor(dayIndex:number):string{

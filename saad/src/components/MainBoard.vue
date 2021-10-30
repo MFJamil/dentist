@@ -2,10 +2,10 @@
     <v-container  style="text-align: center;">
         <v-row>
             <v-col cols="24" >
-                <feedback />
+                <Feedback :isMobile="isMobile" :lang="lang" />
             </v-col>
             <v-col>
-                <Timings />
+                <Timings :isMobile="isMobile" :lang="lang" />
             </v-col>
         </v-row>
         
@@ -14,20 +14,20 @@
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <Doctors />
+                <Doctors :isMobile="isMobile" :lang="lang" />
             </v-col>
         </v-row>
         <div style="height:150px;"></div>
         
         <v-row>
             <v-col>
-                <Services />
+                <Services :isMobile="isMobile" :lang="lang"  />
             </v-col>
         </v-row>
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <Team />
+                <Team  :isMobile="isMobile" :lang="lang" />
             </v-col>
         </v-row>
         <div style="height:150px;"></div>

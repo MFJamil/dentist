@@ -21,13 +21,13 @@
               <span class="footerTitle" @click="$emit('action',item)">{{ $i18n.t(item.title)}}</span>
               <div v-for="(sitem,id) in item.list" :key="id" class="footerLink">
                 <a v-if="sitem.url" :href="sitem.url" target="_blank" >
-                  <v-icon :size="isMobile?'x-small':'small'" color="yellow">{{sitem.icon}}</v-icon>
+                  <v-icon :size="'small'" color="yellow">{{sitem.icon}}</v-icon>
                   <!--v-icon x-small color="yellow">mdi-star-four-points</v-icon-->
                   &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
                   
                 </a>
                 <div v-else @click="$emit('action',sitem)" >
-                  <v-icon :size="isMobile?'x-small':'small'" color="yellow">{{sitem.icon}}</v-icon>
+                  <v-icon :size="'small'" color="yellow">{{sitem.icon}}</v-icon>
                   <!--v-icon x-small color="yellow">mdi-star-four-points</v-icon-->
                   &nbsp;{{ $i18n.t(sitem.title)}}&nbsp;&nbsp;
                 </div>
@@ -199,7 +199,6 @@ export default class Footer extends Vue {
   position: relative;
   left: 4px;
   cursor: pointer;
-  
   font-size: var(--footer-link-size);
 }
 .footerLink a{

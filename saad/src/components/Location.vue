@@ -7,6 +7,7 @@
                 <v-card
                     class="mx-auto"
                     max-width="310"
+                    :width="isMobile?'96vw':'400'"
                     elevation="6"
 
                 >
