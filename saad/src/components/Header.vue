@@ -7,8 +7,10 @@
 
       >
         <v-spacer></v-spacer>
-        <v-icon>mdi-email</v-icon>
-        &nbsp; {{ $i18n.t('actNachricht') }}
+        <div @click="$emit('action','/usermessage')">
+          <v-icon>mdi-email</v-icon>
+          &nbsp; {{ $i18n.t('actNachricht') }}
+        </div>
         <v-spacer></v-spacer>
         <div v-if="isMobile"  @click="$emit('action','/')"> 
           <v-icon> mdi-home</v-icon>

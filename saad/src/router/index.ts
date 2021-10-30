@@ -8,6 +8,7 @@ import Tour from '../components/Tour.vue'
 import Timings from '../components/Timings.vue'
 import Location from '../components/Location.vue'
 import Emergency from '../components/Emergency.vue'
+import UserMessage from '../components/UserMessage.vue'
 
 Vue.use(VueRouter)
 
@@ -54,6 +55,12 @@ const routes: Array<RouteConfig> = [
     name: 'Emergency',
     component: Emergency
   },
+  {
+    path: '/usermessage',
+    name: 'UserMessage',
+    component: UserMessage
+  },
+
   
 
 ]

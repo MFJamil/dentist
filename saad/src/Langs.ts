@@ -42,6 +42,10 @@ export const messages ={
         titleOrt:'Der Standort',
         titleEmergency:'Was ist im Notfall zu tun?',
         prg_emergency:'Sollten Sie außerhalb der Sprechzeiten oder an Sonn- und Feiertagen starke Zahnschmerzen oder andere akute Beschwerden bekommen, dann entnehmen Sie die Nummer der diensthabenden Kollegen/innen aus der örtlichen Tagespresse (Hanauer Anzeiger oder Hanauer Post)',
+        frm_name:'Name',
+        frm_mail:'E-Mail',
+        frm_text:'Text',
+        frm_send:'Senden',
 
 
     },
@@ -88,6 +92,11 @@ export const messages ={
         titleOrt:'الموقع',
         titleEmergency:'ماذا تفعل في حالة الطوارئ؟',
         prg_emergency:'إذا كنت تعاني من ألم شديد في الأسنان أو شكاوى حادة أخرى خارج ساعات العمل أو أيام الأحد والعطلات الرسمية ، فيمكنك العثور على عدد الزملاء المناوبين من الصحافة اليومية المحلية (Hanauer Anzeiger أو Hanauer Post)',
+        frm_name:'الأسم',
+        frm_mail:'البريد الإلكتروني',
+        frm_text:'الرسالة ',
+        frm_send:'أرسل ',
+
     },
     'en':{
         appTitle: 'Dentist clinic Kundakji & Partner',
@@ -132,6 +141,10 @@ export const messages ={
         titleOrt:'The Location',
         titleEmergency:'What to do in an emergency?',
         prg_emergency:'If you get severe toothache or other acute complaints outside of office hours or on Sundays and public holidays, you can find the number of the colleagues on duty from the local daily press (Hanauer Anzeiger or Hanauer Post)',
+        frm_name:'Name',
+        frm_mail:'E-Mail',
+        frm_text:'Text',
+        frm_send:'Send',
     },
 
 }
