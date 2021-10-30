@@ -263,12 +263,15 @@ public menus=[            {
      {action: '',title: 'srv_implantologie', icon:'mdi-account-wrench'},
      {action: '',title: 'srv_chirurgische', icon:'mdi-account-wrench'},
      {action: '',title: 'srv_funkDiag', icon:'mdi-account-wrench'},
-     {action: '',title: 'Allgemeine Diagnostik', icon: 'mdi-account-wrench'},
-     {action: '',title: 'Kosmetische Leistungen', icon:'mdi-account-wrench'},
+     {action: '',title: 'srv_generalDiag', icon: 'mdi-account-wrench'},
+     {action: '',title: 'srv_cosmetic', icon:'mdi-account-wrench'},
+     
+     /*
      {action: '',title: 'Vorsorge', icon: 'mdi-account-wrench'},
      {action: '',title: 'Cerec', icon: 'mdi-account-wrench'},
      {action: '',title: 'Hahnerhaltung', icon: 'mdi-account-wrench'},
      {action: '',title: 'Patenschaft', icon: 'mdi-account-wrench'},
+     */
 
     ]
    },

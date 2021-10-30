@@ -146,13 +146,14 @@ export default class Footer extends Vue {
               icon: 'mdi-cog'
             },
             {
-              title: 'Allgemeine Diagnostik',
+              title: 'srv_generalDiag',
               icon: 'mdi-cog'
             },
             {
-              title: 'Kosmetische Leistungen',
+              title: 'srv_cosmetic',
               icon: 'mdi-cog'
             },
+            /*
             {
               title: 'Vorsorge',
               icon: 'mdi-cog'
@@ -169,7 +170,7 @@ export default class Footer extends Vue {
               title: 'Patenschaft',
               icon: 'mdi-cog'
             },
-
+*/
           ]
       },
 

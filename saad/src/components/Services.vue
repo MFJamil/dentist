@@ -77,6 +77,14 @@ export default class Services extends Vue {
             name: 'srv_funkDiag',
             pic: 'images/services/funkDiag.jpg',            
         },
+        {
+            name: 'srv_generalDiag',
+            pic: 'images/services/generalDiag.jpg',            
+        },
+        {
+            name: 'srv_cosmetic',
+            pic: 'images/services/cosmetic.jpg',            
+        },
 
 
 ];
