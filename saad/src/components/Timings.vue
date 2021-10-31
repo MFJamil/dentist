@@ -21,19 +21,19 @@
             dense
           >
             <v-timeline-item
-              v-for="day in days"
-              :key="day.id"
-              :color=getDayColor(day.id) 
+              v-for="(day,id) in days"
+              :key="id"
+              :color=getDayColor(day.value) 
               small
             >
               <div>
                 <div class="font-weight-normal">
                     <v-row>
                         <v-col>
-                            <strong :style="'tex-align:left;color:'+getDayColor(day.id)">{{$i18n.t(day.name)}}</strong>  
+                            <strong :style="'tex-align:left;color:'+getDayColor(day.value)">{{$i18n.t(day.name)}}</strong>  
                         </v-col>
                         <v-col>
-                            <div :style="'tex-align:left;color:'+getDayColor(day.id)" v-for="t in day.time" :key="t">{{$i18n.t(t)}}<br /></div>
+                            <div :style="'tex-align:left;color:'+getDayColor(day.value)" v-for="t in day.time" :key="t">{{$i18n.t(t)}}<br /></div>
                         </v-col>
                     </v-row>
                 </div>
@@ -65,52 +65,60 @@ export default class Timings extends Vue {
 
   getDayColor(dayIndex:number):string{
       let curDay = new Date().getDay();
-      return (dayIndex===curDay? 'green':'primary');
+      let color = 'primary';
+      if (dayIndex===curDay){
+          let targetDay = this.days.filter(d => d.value===dayIndex)[0];
+          if (targetDay.time[0]==='txt_Closed') color = 'red';
+          else color ='green';
+      }
+      return color;
   }
 
   public days= [
         {
-          id:1,
+          value:1,
           name: 'day_Mon',
           time: ['09:00 - 13:00','15:00 - 18:00'],
           color: 'primary lighten-1',
         },
         {
-          id:2,
+          value:2,
           name: 'day_Tus',
           time: ['09:00 - 13:00','15:00 - 18:00'],
           color: 'primary lighten-1',
         },
         {
-            id:3,
+            value:3,
           name: 'day_Wed',
           time: ['09:00 - 13:00'],
           color: 'primary lighten-1',
         },
         {
-            id:4,
+            value:4,
           name: 'day_Thu',
           time: ['09:00 - 13:00','15:00 - 18:00'],
           color: 'green',
         },
         {
-            id:5,
+            value:5,
           name: 'day_Fri',
           time: ['09:00 - 13:00'],
           color: 'primary lighten-1',
         },
         {
-            id:6,
+            value:6,
           name: 'day_Sat',
           time: ['txt_Closed'],
           color: 'primary lighten-1',
         },
+
         {
-            id:7,
+            value:0,
           name: 'day_Sun',
           time: ['txt_Closed'],
           color: 'primary lighten-1',
         },
+
 
 ];
 }

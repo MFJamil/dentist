@@ -8,15 +8,13 @@
   >
     <v-text-field
       v-model="name"
-      :counter="10"
-      :rules="nameRules"
+      :counter="40"
       :label="$i18n.t('frm_name')"
       required
     ></v-text-field>
 
     <v-text-field
       v-model="email"
-      :rules="emailRules"
       :label="$i18n.t('frm_mail')"
       required
     ></v-text-field>
@@ -69,7 +67,32 @@ export default class UserMessage extends Vue {
   public isMobile! :boolean;
   @Prop()
   public lang!:string;
+  public valid = true;
+  public name ='';
+  public email ='';
+   public rules:any = {
+            required: (value:any) => {
+                return value!==null||'Erforderlich';
+            },
+            isInteger: (value:any) => !isNaN(Number(value)) || "Muss nummerisch (Integer) sein",
+            isPositiveInteger: (value:any) => (!isNaN(Number(value))&&(Number(value)>0)) || "Bitte geben Sie eine positive Zahl ein",
+            jahreCheck: (value:any) => {
+                if (value == undefined) return false;
+                return (value+'').length == 4 || "keine 4-Stellige Jahreszahl sein";
+            },
+            isDecimal: (value:any) => {
+                if (value == undefined) return false;
+                if (Number(value)) return true;
+                let pValue = value+''.replace(",", ".");
+                return (
+                    !isNaN(Number(pValue) - parseFloat(pValue)) || "Muss nummerisch (Dezimal) sein"
+                );
+            },
+            percentCheck:(value:any) =>{
+            return (value>=0 && value<=100)||'Bitte eine Zahl zwischen 0 – 100 % eingeben';
+            },
 
+        };
 }
 </script>
 
