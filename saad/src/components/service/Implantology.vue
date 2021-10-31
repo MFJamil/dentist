@@ -7,7 +7,7 @@
         :pic1="'images/services/implantology/case_1_after.png'"
         :pic2="'images/services/implantology/case_1_before.png'"
         />
-      </div>
+      
 <!--
       <div class="img-comp-container">
         <div class="img-comp-img">
@@ -18,6 +18,8 @@
         </div>
         </div>
         -->
+      </div>
+        <div class="compareCont">
       <div style="width: 60vw;">
         <h3 class="section-title" style="color:var(--v-primary-base);">{{$i18n.t('srv_implantologie')}}</h3>
         <br />
@@ -34,6 +36,7 @@
             </span>
 
         </p>
+      </div>
       </div>
   </v-container>
 </template>
@@ -58,7 +61,7 @@ export default class Implantology extends Vue {
 
 <style scoped>
 .compareCont{
-    width:60vw;
+    width:100vw;
     
     display: flex;
     justify-content: center;

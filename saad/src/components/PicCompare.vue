@@ -66,7 +66,7 @@ export default class PicCompare extends Vue {
       if (this.clicked===0) return;
       let ovImg  = this.$refs.overlayImg;
       let pos = Math.abs(this.getCursorPos(e));
-      console.log(pos + ":: " + ovImg.offsetWidth);
+      //console.log(pos + ":: " + ovImg.offsetWidth);
       if (pos<0) pos=0;
       if (pos>this.width) pos= this.width;
       ovImg.style.width = pos + 'px';
