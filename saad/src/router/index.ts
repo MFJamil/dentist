@@ -3,12 +3,13 @@ import VueRouter, { RouteConfig } from 'vue-router'
 import MainBoard from '../components/MainBoard.vue'
 import Doctors from '../components/Doctors.vue'
 import Team from '../components/Team.vue'
-import Services from '../components/Services.vue'
+import Services from '../components/service/Services.vue'
 import Tour from '../components/Tour.vue'
 import Timings from '../components/Timings.vue'
 import Location from '../components/Location.vue'
 import Emergency from '../components/Emergency.vue'
 import UserMessage from '../components/UserMessage.vue'
+import Implantology from '../components/service/Implantology.vue'
 
 Vue.use(VueRouter)
 
@@ -60,7 +61,13 @@ const routes: Array<RouteConfig> = [
     name: 'UserMessage',
     component: UserMessage
   },
+  {
+    path: '/implantology',
+    name: 'implantology',
+    component: Implantology
+  },
 
+  
   
 
 ]

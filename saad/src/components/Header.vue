@@ -262,7 +262,7 @@ public menus=[            {
     title: 'mnuLeistungen',
     action: 'services',
     subMenu: [
-     {action: '',title: 'srv_implantologie', icon:'mdi-account-wrench'},
+     {action: 'implantology',title: 'srv_implantologie', icon:'mdi-account-wrench'},
      {action: '',title: 'srv_chirurgische', icon:'mdi-account-wrench'},
      {action: '',title: 'srv_funkDiag', icon:'mdi-account-wrench'},
      {action: '',title: 'srv_generalDiag', icon: 'mdi-account-wrench'},

@@ -135,7 +135,8 @@ export default class Footer extends Vue {
           list: [
             {
               title: 'srv_implantologie',
-              icon: 'mdi-cog'
+              icon: 'mdi-cog',
+              action: 'implantology'
             },
             {
               title: 'srv_chirurgische',

@@ -12,13 +12,17 @@
                         outlined
                         shaped
                         elevation="5"
+                        
                     >
                         <v-img
                         :src="service.pic"
                         height="150px"
                         
                         />
-                        <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
+                        <v-card-title 
+                        primary-title class="justify-center" 
+                        style="word-break: break-word !important;cursor:pointer;"
+                        @click="$emit('action', service.action)">
                         {{$i18n.t(service.name)}}
                         </v-card-title>
 
@@ -68,6 +72,7 @@ export default class Services extends Vue {
         {
             name: 'srv_implantologie',
             pic: 'images/services/kiefer-implantat.jpg',
+            action: 'implantology'
         },
         {
             name: 'srv_chirurgische',

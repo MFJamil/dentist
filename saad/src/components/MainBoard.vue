@@ -21,7 +21,7 @@
         
         <v-row>
             <v-col>
-                <Services :isMobile="isMobile" :lang="lang"  />
+                <Services :isMobile="isMobile" :lang="lang" @action="$emit('action',$event)" />
             </v-col>
         </v-row>
         <div style="height:150px;"></div>
@@ -46,7 +46,7 @@
 import { Component, Vue, Prop } from 'vue-property-decorator';
 import Doctors from './Doctors.vue';
 import Team from './Team.vue';
-import Services from './Services.vue';
+import Services from './service/Services.vue';
 import Tour from './Tour.vue';
 import Timings from './Timings.vue';
 import Feedback from './Feedback.vue';

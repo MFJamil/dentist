@@ -15,7 +15,7 @@
 
         <!-- If using vue-router -->
         <v-fab-transition >
-        <router-view :isMobile="isOnMobile" :lang="curLang"  ></router-view>
+        <router-view :isMobile="isOnMobile" :lang="curLang" @action="handleAction" ></router-view>
         </v-fab-transition>
       </v-container>
    
