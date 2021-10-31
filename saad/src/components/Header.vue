@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="mainHeaderDiv">
     <v-system-bar app
         color="primary"
         lights-out
@@ -7,7 +7,7 @@
 
       >
         <v-spacer></v-spacer>
-        <div @click="$emit('action','/usermessage')">
+        <div @click="$emit('action','/usermessage')" style="cursor: pointer;">
           <v-icon>mdi-email</v-icon>
           &nbsp; {{ $i18n.t('actNachricht') }}
         </div>
