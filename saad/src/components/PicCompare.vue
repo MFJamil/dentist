@@ -1,5 +1,5 @@
 <template>
-    <div class="img-comp-container">
+    <div class="img-comp-container" @mouseup="slideFinish">
         <div class="img-comp-img">
             <img :src="pic1" width="300" height="200">
         </div>
@@ -65,12 +65,15 @@ export default class PicCompare extends Vue {
   slideMove(e:any){
       if (this.clicked===0) return;
       let ovImg  = this.$refs.overlayImg;
-      let pos = this.getCursorPos(e);
-      //console.log(pos + ":: " + ovImg.offsetWidth);
+      let pos = Math.abs(this.getCursorPos(e));
+      console.log(pos + ":: " + ovImg.offsetWidth);
       if (pos<0) pos=0;
       if (pos>this.width) pos= this.width;
       ovImg.style.width = pos + 'px';
-      this.slider.style.left = ovImg.offsetWidth-(this.slider.offsetWidth/2) + 'px';
+      if (this.lang!=='ar')
+        this.slider.style.left = ovImg.offsetWidth-(this.slider.offsetWidth/2) + 'px';
+      else
+        this.slider.style.right = ovImg.offsetWidth-(this.slider.offsetWidth/2) + 'px';
 
   }
   getCursorPos(e:any){
@@ -80,7 +83,8 @@ export default class PicCompare extends Vue {
       /* Get the x positions of the image: */
       a = ovImg.getBoundingClientRect();
       /* Calculate the cursor's x coordinate, relative to the image: */
-      x = e.pageX - a.left;
+      
+      x =  e.pageX -  a.left;
       /* Consider any page scrolling: */
       x = x - window.pageXOffset;
       return x;      
@@ -88,14 +92,19 @@ export default class PicCompare extends Vue {
   }
 
 }
+//* {box-sizing: border-box;}
 </script>
 
-<style scoped>
-* {box-sizing: border-box;}
+<style >
+
 
 .img-comp-container {
   position: relative;
   height: 200px; /*should be the same height as the images*/
+  width: 300px ;
+  background-color: black;    
+    
+  
 }
 
 .img-comp-img {

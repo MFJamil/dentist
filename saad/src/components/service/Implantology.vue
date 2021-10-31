@@ -1,6 +1,8 @@
 <template>
   <v-container fluid style="display: grid !important;justify-content: center;">
-      <div style="width:60vw;text-align:center">
+    
+      <div class="compareCont">
+          
       <PicCompare :isMobile="isMobile" :lang="lang" 
         :pic1="'images/services/implantology/case_1_after.png'"
         :pic2="'images/services/implantology/case_1_before.png'"
@@ -42,7 +44,7 @@ import PicCompare from '../PicCompare.vue';
 
 @Component({
   components: {
-    PicCompare
+  PicCompare  
   }})
 export default class Implantology extends Vue {
 
@@ -54,35 +56,16 @@ export default class Implantology extends Vue {
 }
 </script>
 
-<style>
-* {box-sizing: border-box;}
+<style scoped>
+.compareCont{
+    width:60vw;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 
-.img-comp-container {
-  position: relative;
-  height: 200px; /*should be the same height as the images*/
 }
 
-.img-comp-img {
-  position: absolute;
-  width: auto;
-  height: auto;
-  overflow: hidden;
-}
 
-.img-comp-img img {
-  display: block;
-  vertical-align: middle;
-}
-
-.img-comp-slider {
-  position: absolute;
-  z-index: 9;
-  cursor: ew-resize;
-  /*set the appearance of the slider:*/
-  width: 40px;
-  height: 40px;
-  background-color: #2196F3;
-  opacity: 0.7;
-  border-radius: 50%;
-}
 </style>

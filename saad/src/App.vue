@@ -5,8 +5,8 @@
   <v-expand-x-transition>
   <Header :isMobile="isOnMobile" :lang="curLang" @action="handleAction"/>
   </v-expand-x-transition>
-  <!-- Sizes your content based upon application components -->
-  <v-sheet ref="pageBody" id="scroll-target" class="overflow-y-auto scroll-y" max-height="100vh" style="overflow-x: hidden;" v-scroll.self="onScroll">
+  <!-- Sizes your content based upon application components  -->
+  <v-sheet ref="pageBody" id="pageBody" class="overflow-y-auto" max-height="100vh" style="overflow-x: hidden;" v-scroll.self="onScroll">
     
   <v-main >
     
@@ -93,7 +93,7 @@ export default class App extends Vue{
 
   }
   public goUp(){
-     document.getElementById('scroll-target')?.scrollTo(0,0);
+     document.getElementById('pageBody')?.scrollTo(0,0);
   }
 
 }
