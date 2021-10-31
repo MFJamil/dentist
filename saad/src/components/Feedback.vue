@@ -163,23 +163,23 @@ export default class Feedback extends Vue {
 /* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
 /* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
 @keyframes tickerh_ltr {
-  0% { transform: translate3d(0%, 0, 0); }
-  100% { transform: translate3d(-600%, 0, 0); }
+  0% { transform: translate3d(100%, 0, 0); }
+  100% { transform: translate3d(-400%, 0, 0); }
 }
 @keyframes tickerh_rtl {
-  0% { transform: translate3d( 0%, 0, 0); }
-  100% { transform: translate3d(500%, 0, 0); }
+  0% { transform: translate3d( -100%, 0, 0); }
+  100% { transform: translate3d(400%, 0, 0); }
 }
 
 .hmove { 
   
-  animation: tickerh_ltr linear 20s infinite; 
+  animation: tickerh_ltr linear 25s infinite; 
   width:600px; 
   
   }
 .hmove_ar { 
   display: flex;
-  animation: tickerh_rtl linear 20s infinite; 
+  animation: tickerh_rtl linear 25s infinite; 
   
   width:600px; 
   }

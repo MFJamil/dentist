@@ -23,7 +23,7 @@
       color="success"
       class="mr-4"
     >
-    {{$i18n.t('frm_send ')}}
+    {{$i18n.t('frm_send')}}
     </v-btn>
 
 <!--

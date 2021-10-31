@@ -30,7 +30,9 @@
                 <div class="font-weight-normal">
                     <v-row>
                         <v-col>
-                            <strong :style="'tex-align:left;color:'+getDayColor(day.value)">{{$i18n.t(day.name)}}</strong>  
+                            <div :style="'text-align:' + (lang=='ar'?'right':'left')">
+                              <strong :style="'color:'+getDayColor(day.value)">{{$i18n.t(day.name)}}</strong>  
+                            </div>
                         </v-col>
                         <v-col>
                             <div :style="'tex-align:left;color:'+getDayColor(day.value)" v-for="t in day.time" :key="t">{{$i18n.t(t)}}<br /></div>
@@ -68,7 +70,7 @@ export default class Timings extends Vue {
       let color = 'primary';
       if (dayIndex===curDay){
           let targetDay = this.days.filter(d => d.value===dayIndex)[0];
-          if (targetDay.time[0]==='txt_Closed') color = 'red';
+          if (targetDay.time[0]==='txt_Closed') color = '#970808';
           else color ='green';
       }
       return color;
