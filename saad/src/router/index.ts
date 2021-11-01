@@ -10,6 +10,7 @@ import Location from '../components/Location.vue'
 import Emergency from '../components/Emergency.vue'
 import UserMessage from '../components/UserMessage.vue'
 import Implantology from '../components/service/Implantology.vue'
+import GalaryCarousel from '../components/GalaryCarousel.vue'
 
 Vue.use(VueRouter)
 
@@ -38,7 +39,7 @@ const routes: Array<RouteConfig> = [
   {
     path: '/tour',
     name: 'Tour',
-    component: Tour
+    component: GalaryCarousel
   },
   {
     path: '/timings',
@@ -66,6 +67,8 @@ const routes: Array<RouteConfig> = [
     name: 'implantology',
     component: Implantology
   },
+
+  
 
   
   

@@ -33,7 +33,7 @@
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <Tour :slideOnly="isMobile"/>
+                <GalaryCarousel :slideOnly="isMobile"/>
             </v-col>
         </v-row>
         
@@ -48,6 +48,7 @@ import Doctors from './Doctors.vue';
 import Team from './Team.vue';
 import Services from './service/Services.vue';
 import Tour from './Tour.vue';
+import GalaryCarousel from './GalaryCarousel.vue';
 import Timings from './Timings.vue';
 import Feedback from './Feedback.vue';
 
@@ -58,7 +59,8 @@ import Feedback from './Feedback.vue';
     Services,
     Timings,
     Feedback,
-    Tour
+    GalaryCarousel,
+    
   }, 
 })
 export default class MainBoard extends Vue {
