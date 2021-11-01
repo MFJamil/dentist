@@ -20,8 +20,10 @@
                         
                         />
                         <v-card-title 
-                        primary-title class="justify-center" 
-                        style="word-break: break-word !important;cursor:pointer;"
+                        
+                        primary-title
+                        class="justify-center" 
+                        style="word-break: break-word !important;cursor:pointer;color:var(--v-primary-base);"
                         @click="$emit('action', service.action)">
                         {{$i18n.t(service.name)}}
                         </v-card-title>
@@ -47,7 +49,10 @@
                         
                         />
 
-                        <v-card-title primary-title class="justify-center" style="word-break: break-word !important;">
+                        <v-card-title primary-title class="justify-center" 
+                        style="word-break: break-word !important;"
+                        @click="$emit('action', service.action)"
+                        >
                         {{$i18n.t(service.name)}}
                         </v-card-title>
                         </v-card>

@@ -84,7 +84,8 @@ export default class PicCompare extends Vue {
       a = ovImg.getBoundingClientRect();
       /* Calculate the cursor's x coordinate, relative to the image: */
       
-      x =  e.pageX -  a.left;
+      x =  e.pageX - (this.lang=='ar'?a.right:a.left);
+
       /* Consider any page scrolling: */
       x = x - window.pageXOffset;
       return x;      
