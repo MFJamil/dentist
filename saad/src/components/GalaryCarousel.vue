@@ -1,6 +1,6 @@
 <template>
 <v-container fluid style="height:100vh;">
-    <div class="scene">
+    <div class="scene" @touchstart="touchStart" @touchmove="touchMove">
     <div class="carousel" ref="mainComp">
         <!--
         <div class="carousel__cell">1</div>
@@ -75,6 +75,9 @@ export default class GalaryCarousel extends Vue {
   public horizontalIcon='mdi-swap-vertical-bold';
   public showImages = false;
 
+  public xDown:any=null;
+  public yDown:any=null;
+
   mounted(){
       this.comp = this.$refs.mainComp;
       this.doInit();
@@ -122,17 +125,49 @@ export default class GalaryCarousel extends Vue {
    }
 
    next(){
-       //if (this.selectedIndex>this.cellCount) this.selectedIndex = 0;
-       //else this.selectedIndex += 1;
        this.selectedIndex++;
        this.changeCarousel();
    }
    previous(){
-
-       //if (this.selectedIndex<0) this.selectedIndex = this.cellCount;
-       //else this.selectedIndex -= 1;
        this.selectedIndex--;
        this.changeCarousel();
+   }
+
+   touchStart(e:any){
+       //console.log("Touch Start detected ....");
+        const firstTouch = e.touches[0];                                      
+        this.xDown = firstTouch.clientX;                                      
+        this.yDown = firstTouch.clientY;          
+   }
+   touchMove(e:any){
+       //console.log("Touch Move detected ....");
+       if (this.yDown==null||this.xDown==null) return;
+        let xUp = e.touches[0].clientX;                                    
+        let yUp = e.touches[0].clientY;
+
+        let xDiff = this.xDown - xUp;
+        let yDiff = this.yDown - yUp;
+         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                if (this.isHorizontal)
+                    this.next();
+            } else {
+                if (this.isHorizontal)
+                    this.previous();
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                if (!this.isHorizontal) this.next();
+                
+            } else { 
+                /* up swipe */
+                if (!this.isHorizontal) this.previous();
+            }                                                                 
+        }
+        /* reset values */
+        this.xDown = null;
+        this.yDown = null;  
+        e.preventDefault();                                          
    }
        public images = [
         {
