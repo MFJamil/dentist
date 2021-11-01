@@ -10,7 +10,7 @@
 </template>
 
 <script  lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
+import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
 
 
 @Component
@@ -30,17 +30,18 @@ export default class PicCompare extends Vue {
   public clicked = 0;
   public width = 0;
   public  slider = document.createElement("DIV");
+  public  ovImg!:HTMLElement ;
   mounted(){
       this.doInit();
   }
   doInit(){
-      let ovImg  = this.$refs.overlayImg;
-      this.width = ovImg.offsetWidth;
-      let h = ovImg.offsetHeight;
-      ovImg.style.width = (this.width/2)+ 'px';
+      this.ovImg  = this.$refs.overlayImg;
+      this.width = this.ovImg.offsetWidth;
+      let h = this.ovImg.offsetHeight;
+      this.ovImg.style.width = (this.width/2)+ 'px';
       
       this.slider.classList.add("img-comp-slider");
-      ovImg.parentElement?.insertBefore(this.slider,ovImg);
+      this.ovImg.parentElement?.insertBefore(this.slider,this.ovImg);
       this.slider.style.top = (h/2)-(this.slider.offsetHeight/2) + 'px';
       this.slider.style.left = (this.width/2)-(this.slider.offsetWidth/2) + 'px';
       this.slider.addEventListener("mousedown",this.slideReady);
@@ -64,24 +65,34 @@ export default class PicCompare extends Vue {
   }
   slideMove(e:any){
       if (this.clicked===0) return;
-      let ovImg  = this.$refs.overlayImg;
-      let pos = Math.abs(this.getCursorPos(e));
-      //console.log(pos + ":: " + ovImg.offsetWidth);
+      
+      let pos = this.getCursorPos(e);
+      console.log(pos + ":: " + this.ovImg.offsetWidth);
+      if (this.lang=='ar'){
+          if (pos>0) pos=0;
+          else pos = Math.abs(pos);
+      }
+        
       if (pos<0) pos=0;
       if (pos>this.width) pos= this.width;
-      ovImg.style.width = pos + 'px';
+      this.ovImg.style.width = pos + 'px';
+      this.updateSlider();
+
+  }
+  updateSlider(){
       if (this.lang!=='ar')
-        this.slider.style.left = ovImg.offsetWidth-(this.slider.offsetWidth/2) + 'px';
+        this.slider.style.left = this.ovImg.offsetWidth-(this.slider.offsetWidth/2) + 'px';
       else
-        this.slider.style.right = ovImg.offsetWidth-(this.slider.offsetWidth/2) + 'px';
+        this.slider.style.right = this.ovImg.offsetWidth-(this.slider.offsetWidth/2) + 'px';
+
 
   }
   getCursorPos(e:any){
       var a, x = 0;
-      let ovImg  = this.$refs.overlayImg;
+      
       e = (e.changedTouches) ? e.changedTouches[0] : e;
       /* Get the x positions of the image: */
-      a = ovImg.getBoundingClientRect();
+      a = this.ovImg.getBoundingClientRect();
       /* Calculate the cursor's x coordinate, relative to the image: */
       
       x =  e.pageX - (this.lang=='ar'?a.right:a.left);
@@ -90,6 +101,11 @@ export default class PicCompare extends Vue {
       x = x - window.pageXOffset;
       return x;      
 
+  }
+  @Watch('lang')
+  langChanged(){
+      console.log("Language is changed to " + this.lang);
+    this.updateSlider();
   }
 
 }
@@ -103,8 +119,8 @@ export default class PicCompare extends Vue {
   position: relative;
   height: 200px; /*should be the same height as the images*/
   width: 300px ;
-  background-color: black;    
-    
+  
+  border-radius: 10px; 
   
 }
 
@@ -113,10 +129,12 @@ export default class PicCompare extends Vue {
   width: auto;
   height: auto;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .img-comp-img img {
   display: block;
+
   
 }
 
