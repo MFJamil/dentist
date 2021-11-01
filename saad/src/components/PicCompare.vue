@@ -67,7 +67,7 @@ export default class PicCompare extends Vue {
       if (this.clicked===0) return;
       
       let pos = this.getCursorPos(e);
-      console.log(pos + ":: " + this.ovImg.offsetWidth);
+      //console.log(pos + ":: " + this.ovImg.offsetWidth);
       if (this.lang=='ar'){
           if (pos>0) pos=0;
           else pos = Math.abs(pos);
@@ -140,7 +140,7 @@ export default class PicCompare extends Vue {
 
 .img-comp-slider {
   position: absolute;
-  z-index: 9;
+  z-index: 1;
   cursor: ew-resize;
   /*set the appearance of the slider:*/
   width: 40px;
