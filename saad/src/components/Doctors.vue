@@ -97,9 +97,7 @@ export default class Doctors extends Vue {
             position: 'dct_pos_za',
             pic: 'images/no-profile-pic.jpg',
         },
-
-
-];
+    ];
 
 }
 </script>

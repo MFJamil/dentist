@@ -25,18 +25,22 @@
 <Toolbox @langUpdate="langUpdated" />
 
 
-
+  <v-slide-y-transition>
       <div class="scrollUpIcon" v-show="showScrollUp" ref="scrEl">
-        <v-btn
-          color="primary"
-          fab
-          x-small
-          dark
-          @click="goUp"
-          >
-          <v-icon>mdi-arrow-up-bold-outline</v-icon>
-        </v-btn>
+            <v-btn
+              color="primary"
+              fab
+              x-small
+              
+              dark
+              @click="goUp"
+              >
+              <v-icon >mdi-arrow-up-bold-outline</v-icon>
+            </v-btn>
       </div>
+
+  </v-slide-y-transition>
+
     </v-sheet>
   </v-app>
 </template>
