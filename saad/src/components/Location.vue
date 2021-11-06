@@ -113,25 +113,6 @@ export default class Location extends Vue {
   public lang!:string;
   public mapHeight = this.isMobile?400:500;
   public mapWidth = this.isMobile?310:600;
-    public doctors = [
-        {
-            name: 'dct_name_sa',
-            position: 'dct_pos_za',
-            pic: 'images/saad_1.jpg',
-        },
-        {
-            name: 'dct_name_aa',
-            position: 'dct_pos_za',
-            pic: 'images/no-profile-pic.jpg',
-        },
-        {
-            name: 'dct_name_aj',
-            position: 'dct_pos_za',
-            pic: 'images/no-profile-pic.jpg',
-        },
-
-
-];
 
 }
 </script>

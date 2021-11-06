@@ -37,12 +37,6 @@
 
         </p>
       </div>
-      <div >
-        <v-btn  elevation="5" color="primary">
-          <v-icon left>mdi-calendar-plus</v-icon>
-              {{$i18n.t('txtBooking')}}
-        </v-btn>
-      </div>
       </div>
   </v-container>
 </template>

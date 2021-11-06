@@ -41,7 +41,7 @@
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <GalaryCarousel :slideOnly="isMobile"/>
+                <GalaryCarousel :slideOnly="isMobile" :isMobile="isMobile" :lang="lang"/>
             </v-col>
         </v-row>
         <v-row>

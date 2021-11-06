@@ -79,8 +79,15 @@ export default class Services extends Vue {
             action: 'implantology'
         },
         {
+            name: 'srv_cleaning',
+            pic: 'images/services/cleaning.jpg',            
+            action: 'cleaning'
+        },
+
+        {
             name: 'srv_chirurgische',
             pic: 'images/services/schirurgie.jpg',
+            
         },
         {
             name: 'srv_funkDiag',
@@ -88,12 +95,13 @@ export default class Services extends Vue {
         },
         {
             name: 'srv_generalDiag',
-            pic: 'images/services/generalDiag.jpg',            
+            pic: 'images/services/generalDiag.jpg',           
         },
         {
             name: 'srv_cosmetic',
-            pic: 'images/services/cosmetic.jpg',            
+            pic: 'images/services/cosmetic.jpg',           
         },
+        
 
 
 ];

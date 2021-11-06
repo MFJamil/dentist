@@ -10,6 +10,7 @@ import Location from '../components/Location.vue'
 import Emergency from '../components/Emergency.vue'
 import UserMessage from '../components/UserMessage.vue'
 import Implantology from '../components/service/Implantology.vue'
+import ToothCleaning from '../components/service/ToothCleaning.vue'
 import GalaryCarousel from '../components/GalaryCarousel.vue'
 
 Vue.use(VueRouter)
@@ -66,6 +67,16 @@ const routes: Array<RouteConfig> = [
     path: '/implantology',
     name: 'implantology',
     component: Implantology
+  },
+  {
+    path: '/implantology',
+    name: 'implantology',
+    component: Implantology
+  },
+  {
+    path: '/cleaning',
+    name: 'cleaning',
+    component: ToothCleaning
   },
 
   

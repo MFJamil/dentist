@@ -1,0 +1,216 @@
+{
+    "name": "app_title",
+    "address":"Münsterpl. 1, 55116 Mainz",
+    "image": "images/location/praxis_mainz.jpg",
+    "emergencyLink": "https://www.zahnarzt-notdienst.de/",
+    "doctors":[
+        {
+            "name": "dct_name_sa",
+            "position": "dct_pos_za",
+            "pic": "images/saad_1.jpg"
+        },
+        {
+            "name": "dct_name_aa",
+            "position": "dct_pos_za",
+            "pic": "images/no-profile-pic.jpg"
+        },
+        {
+            "name": "dct_name_aj",
+            "position": "dct_pos_za",
+            "pic": "images/no-profile-pic.jpg"
+        }
+    ],
+    "team" : [
+        {
+            "name": "team_name_ma1",
+            "position": "team_pos_zf",
+            "pic": "images/no-profile-pic.jpg"
+        },
+        {
+            "name": "team_name_ma1",
+            "position": "team_pos_zf",
+            "pic": "images/no-profile-pic.jpg"
+        },
+        {
+            "name": "team_name_ma1",
+            "position": "team_pos_ab",
+            "pic": "images/no-profile-pic.jpg"
+        }
+
+
+    ],    
+    "timings" : [
+        {
+          "value":1,
+          "name": "day_Mon",
+          "time": ["09:00 - 13:00","15:00 - 18:00"]
+        },
+        {
+          "value":2,
+          "name": "day_Tus",
+          "time": ["09:00 - 13:00","15:00 - 18:00"]
+        },
+        {
+          "value":3,
+          "name": "day_Wed",
+          "time": ["09:00 - 13:00"]
+        },
+        {
+          "value":4,
+          "name": "day_Thu",
+          "time": ["09:00 - 13:00","15:00 - 18:00"]
+        },
+        {
+          "value":5,
+          "name": "day_Fri",
+          "time": ["09:00 - 13:00"]
+        },
+        {
+          "value":6,
+          "name": "day_Sat",
+          "time": ["txt_Closed"]
+        },
+
+        {
+          "value":0,
+          "name": "day_Sun",
+          "time": ["txt_Closed"]
+        }
+    ],    
+    "menu": [
+        {
+        "id": "Praxis",
+        "title": "mnuPraxis",
+        "subMenu": [
+                {"action": "docs","title": "mnuAertzte","icon":"mdi-medical-bag"},
+                {"action": "team","title": "mnuTeam"  ,"icon":"mdi-account-multiple"},
+                {"action": "tour","title": "mnuTour"  ,"icon":"mdi-magnify-plus-outline"}
+            ]
+        },
+        {
+        "id": "Leistungen",
+        "title": "mnuLeistungen",
+        "action": "services",
+        "subMenu": [
+                {"action": "implantology","title": "srv_implantologie", "icon":"mdi-account-wrench"},
+                {"action": "","title": "srv_chirurgische", "icon":"mdi-account-wrench"},
+                {"action": "","title": "srv_funkDiag", "icon":"mdi-account-wrench"},
+                {"action": "","title": "srv_generalDiag", "icon": "mdi-account-wrench"},
+                {"action": "","title": "srv_cosmetic", "icon":"mdi-account-wrench"}
+            ]
+        },
+        {
+            "id": "Kontakt",
+            "title": "mnuKontakt",
+            "subMenu": [
+                {"action": "location","title": "mnuStandort"      ,"icon": "mdi-map-marker" },
+                {"action": "timings","title": "mnuOffnungsZeiten","icon": "mdi-clock-time-five-outline"}
+            ]
+        },
+        {
+            "id": "Notdienst",
+            "title": "mnuNotdienst",
+            "action": "emergency"
+        }
+    ],
+    "footer": [
+        {
+            "title": "mnuPraxis",
+            "list": [
+              {
+                "title": "mnuAertzte",
+                "icon": "mdi-medical-bag",
+                "action": "docs"
+              },
+              {
+                "title": "mnuTeam",
+                "icon": "mdi-account-multiple",
+                "action": "team"
+              },
+              {
+                "title": "mnuTour",
+                "icon": "mdi-magnify-plus-outline",
+                "action": "tour"
+              }
+            ]
+        },
+        {
+            "title": "mnuLeistungen",
+            "action": "services",
+            "list": [
+              {
+                "title": "srv_implantologie",
+                "icon": "mdi-cog",
+                "action": "implantology"
+              },
+              {
+                "title": "srv_chirurgische",
+                "icon": "mdi-cog"
+              },
+              {
+                "title": "srv_funkDiag",
+                "icon": "mdi-cog"
+              },
+              {
+                "title": "srv_generalDiag",
+                "icon": "mdi-cog"
+              },
+              {
+                "title": "srv_cosmetic",
+                "icon": "mdi-cog"
+              }
+            ]
+        },
+  
+       {
+            "title": "mnuKontakt",
+            "list": [
+              {
+                "title": "mnuStandort",
+                "icon": "mdi-map-marker",
+                "action": "location"
+              },
+              {
+                "title": "mnuOffnungsZeiten",
+                "icon": "mdi-clock-time-five-outline",
+                "action": "timings"
+              }
+            ]
+        }
+    ],
+    "galary": [
+        {
+            "name": "pic1",
+            "pic": "images/tour/cln_1.jpg"
+        },
+        {
+            "name": "pic2",
+            "pic": "images/tour/cln_2.jpg"
+        },
+        {
+            "name": "pic3",
+            "pic": "images/tour/cln_3.jpg"
+        },
+        {
+            "name": "pic4",
+            "pic": "images/tour/cln_4.jpg"
+        },
+        {
+            "name": "pic5",
+            "pic": "images/tour/cln_5.jpg"
+        },
+        {
+            "name": "pic6",
+            "pic": "images/tour/cln_6.jpg"
+        },
+        {
+            "name": "pic7",
+            "pic": "images/tour/cln_7.jpg"
+        },
+        {
+            "name": "pic8",
+            "pic": "images/tour/cln_8.jpg"
+        }
+
+       ]
+}

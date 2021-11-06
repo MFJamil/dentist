@@ -139,6 +139,12 @@ export default class Footer extends Vue {
               action: 'implantology'
             },
             {
+                title: 'srv_cleaning',
+                icon: 'mdi-cog',
+                action: 'cleaning'
+            },
+
+            {
               title: 'srv_chirurgische',
               icon: 'mdi-cog'
             },
@@ -147,14 +153,15 @@ export default class Footer extends Vue {
               icon: 'mdi-cog'
             },
             {
-              title: 'srv_generalDiag',
-              icon: 'mdi-cog'
-            },
-            {
               title: 'srv_cosmetic',
               icon: 'mdi-cog'
             },
             /*
+            {
+              title: 'srv_generalDiag',
+              icon: 'mdi-cog'
+            },
+
             {
               title: 'Vorsorge',
               icon: 'mdi-cog'

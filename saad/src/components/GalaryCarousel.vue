@@ -25,11 +25,14 @@
 
     </div>
     <div class="controlPanel" >
-        <v-btn v-show="isHorizontal" icon small @click="previous" ><v-icon>mdi-arrow-left-bold</v-icon></v-btn>
-        <v-btn icon small @click="onOrientationChange(!isHorizontal)" :style="'position:relative;left:' + (isHorizontal?0:27 )+ 'px;'"><v-icon>{{horizontalIcon}}</v-icon></v-btn>
-        <v-btn v-show="isHorizontal" icon small @click="next" ><v-icon>mdi-arrow-right-bold</v-icon></v-btn>
+        <v-btn v-show="isHorizontal" icon small @click="move(lang=='ar')" ><v-icon>{{lang=='ar'?'mdi-arrow-right-bold': 'mdi-arrow-left-bold'}}</v-icon></v-btn>
+        <v-btn icon small @click="onOrientationChange(!isHorizontal)" :style="'position:relative;left:' + (isHorizontal?0:lang=='ar'?-27:27 )+ 'px;'"><v-icon>{{horizontalIcon}}</v-icon></v-btn>
+        <v-btn v-show="isHorizontal" icon small @click="move(lang!='ar')" ><v-icon>{{lang=='ar'?'mdi-arrow-left-bold': 'mdi-arrow-right-bold'}}</v-icon></v-btn>
+
+
+
         <v-btn v-show="!isHorizontal" icon small @click="next" style="position:relative;top:-20px;" ><v-icon>mdi-arrow-up-bold</v-icon></v-btn>
-        <v-btn v-show="!isHorizontal" icon small @click="previous" style="position:relative;top:20px;left:-27px;"><v-icon>mdi-arrow-down-bold</v-icon></v-btn>
+        <v-btn v-show="!isHorizontal" icon small @click="previous" :style="'position:relative;top:20px;left:' + (lang=='ar'?27:-27) + 'px;'"><v-icon>mdi-arrow-down-bold</v-icon></v-btn>
         
     </div>
     </div>
@@ -124,13 +127,19 @@ export default class GalaryCarousel extends Vue {
     this.changeCarousel();
    }
 
-   next(){
+   next():any{
        this.selectedIndex++;
        this.changeCarousel();
    }
-   previous(){
-       this.selectedIndex--;
-       this.changeCarousel();
+
+    previous():any{
+        this.selectedIndex--;
+        this.changeCarousel();
+   }
+
+   move(forward:boolean){
+      this.selectedIndex = this.selectedIndex + (forward?1:-1);       
+      this.changeCarousel();
    }
 
    touchStart(e:any){
