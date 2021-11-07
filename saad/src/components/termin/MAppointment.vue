@@ -101,24 +101,28 @@ export default class MAppointment extends Vue {
         let yDiff = this.yDown - yUp;
          if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
             if ( xDiff > 0 ) {
-                /** Touch was to the right */
-                console.log("Right --------");
+                /** Touch was to the left */
+                console.log("left --------");
+                if (this.pr>1)
+                  this.pr --;
             } else {
                 /** Touch was to the right */
-              console.log("Left --------");
+              console.log("right --------");
+              if (this.pr<this.steps.length-1)                
+                 this.pr ++;
             }                       
         } else {
             if ( yDiff > 0 ) {
                 /** swipe down */
                 console.log("Up --------");
                 //this.$emit('done', 1);
-                this.pr ++;
+                
                 
             } else { 
                 /* up swipe */
                 console.log("Down --------");
                 
-                this.pr --;
+                
                 
             }                                                                 
         }
