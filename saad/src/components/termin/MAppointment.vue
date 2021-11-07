@@ -1,9 +1,12 @@
 <template>
-  <div style="background-color:white;height:100%;width:100%;" >
+  <div style="background-color:white;height:100%;width:100%;overflow:auto;position:fixed;" >
    <v-card 
       elevation="5"
       class="mb-12"
       @touchstart="touchStart" @touchmove="touchMove"
+      width="100vw"
+      height="100%"
+      style="overflow:auto;"
       >
 
     <v-progress-linear height="8px" :value="(pr/steps.length)*100"></v-progress-linear>
@@ -43,6 +46,7 @@
 
          </v-stepper>
     </v-card-text>
+    <!--
       <v-card-actions>
         <v-spacer /> 
         <v-btn v-show="pr==steps.length" color="success">{{$i18n.t('frm_book')}}<v-icon right dark>mdi-sort-calendar-descending</v-icon></v-btn>
@@ -52,8 +56,16 @@
         <v-btn v-show="pr<steps.length" icon :disabled="pr>=steps.length"  large @click="pr<steps.length? pr++:1"><v-icon>{{(lang=='ar'?'mdi-arrow-left-circle':'mdi-arrow-right-circle')}}</v-icon></v-btn>
         <v-btn icon v-show="pr==1"   @click="$emit('doClose',false)"><v-icon>mdi-close</v-icon></v-btn>
       </v-card-actions>
+      -->
 
    </v-card>
+   <div id="control">
+        <v-btn v-show="pr==steps.length" color="success">{{$i18n.t('frm_book')}}<v-icon right dark>mdi-sort-calendar-descending</v-icon></v-btn>
+        <v-spacer /> 
+        <v-btn v-show="pr>1" icon :disabled="pr==1"  large @click="pr>1? pr--:1"><v-icon>{{(lang=='ar'?'mdi-arrow-right-circle':'mdi-arrow-left-circle')}}</v-icon></v-btn>
+        <v-btn v-show="pr<steps.length" icon :disabled="pr>=steps.length"  large @click="pr<steps.length? pr++:1"><v-icon>{{(lang=='ar'?'mdi-arrow-left-circle':'mdi-arrow-right-circle')}}</v-icon></v-btn>
+        <v-btn icon v-show="pr==1"   @click="$emit('doClose',false)"><v-icon>mdi-close</v-icon></v-btn>
+   </div>
         </div>
 </template>
 
@@ -169,12 +181,12 @@ export default class MAppointment extends Vue {
     public patient = [
         {
             name: 'apt_pnt_exists',
-            pic: 'images/appointment/member.png',
+            pic: 'images/appointment/id_card.png',
             
         },
         {
             name: 'apt_pnt_not_exist',
-            pic: 'images/appointment/not_member.png',
+            pic: 'images/appointment/no_id_card.png',
         },
     ];
 
@@ -322,5 +334,14 @@ export default class MAppointment extends Vue {
 </script>
 
 <style>
+#control{
+  display:flex;
+   align-items: center;
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  background-color: white;
+  
+}
 
 </style>

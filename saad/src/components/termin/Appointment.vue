@@ -131,12 +131,12 @@ export default class Appointment extends Vue {
     public patient = [
         {
             name: 'apt_pnt_exists',
-            pic: 'images/appointment/member.png',
+            pic: 'images/appointment/id_card.png',
             
         },
         {
             name: 'apt_pnt_not_exist',
-            pic: 'images/appointment/not_member.png',
+            pic: 'images/appointment/no_id_card.png',
         },
     ];
 
