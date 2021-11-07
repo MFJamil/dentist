@@ -26,7 +26,7 @@
           
         </v-stepper-step>
 
-        <v-stepper-content :step="step.val" :key="'C-' + step.val" style="width:100vw !important;position:relative;left:-50px;">
+        <v-stepper-content :step="step.val" :key="'C-' + step.val" :style="'width:100vw !important;position:relative;' + (lang=='ar'?'right:-50px;':'left:-50px;')">
             <component 
               :is="step.component" 
               style="width:98vw !important;"
@@ -61,7 +61,7 @@
 
    </v-card>
    <div id="control">
-        <v-btn v-show="pr==steps.length" color="success">{{$i18n.t('frm_book')}}<v-icon right dark>mdi-sort-calendar-descending</v-icon></v-btn>
+        <v-btn v-show="pr==steps.length" color="success" @click="$emit('doClose',false)">{{$i18n.t('frm_book')}}<v-icon right dark>mdi-sort-calendar-descending</v-icon></v-btn>
         <v-spacer /> 
         <v-btn v-show="pr>1" icon :disabled="pr==1"  large @click="pr>1? pr--:1"><v-icon>{{(lang=='ar'?'mdi-arrow-right-circle':'mdi-arrow-left-circle')}}</v-icon></v-btn>
         <v-btn v-show="pr<steps.length" icon :disabled="pr>=steps.length"  large @click="pr<steps.length? pr++:1"><v-icon>{{(lang=='ar'?'mdi-arrow-left-circle':'mdi-arrow-right-circle')}}</v-icon></v-btn>
