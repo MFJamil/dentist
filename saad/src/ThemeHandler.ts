@@ -51,6 +51,9 @@ export class ThemeHandler{
                 { name:'--feedback-time'                   ,value:'8s'},
                 { name:'--gmap-height'                     ,value:'500px'},
                 { name:'--gmap-width'                      ,value:'600px'},
+                { name:'--step-wrap-up-w'                  ,value:'100%'},
+                { name:'--step-wrap-up-l'                  ,value:'0px'},
+                { name:'--step-wrap-up-p'                  ,value:'absolute'},
             
             ],
         },        
@@ -76,6 +79,9 @@ export class ThemeHandler{
                 { name:'--feedback-time'                   ,value:'8s'},
                 { name:'--gmap-height'                     ,value:'400px'},
                 { name:'--gmap-width'                      ,value:'310px'},
+                { name:'--step-wrap-up-w'                  ,value:'95vw !important'},
+                { name:'--step-wrap-up-l'                  ,value:'-10px'},
+                { name:'--step-wrap-up-p'                  ,value:'relative'},
                 
 
             ],
@@ -98,6 +104,10 @@ export class ThemeHandler{
                 { name:'--feedback-time'                   ,value:'8s'},
                 { name:'--gmap-height'                     ,value:'500px'},
                 { name:'--gmap-width'                      ,value:'600px'},
+                { name:'--step-wrap-up-w'                  ,value:'100%'},
+                { name:'--step-wrap-up-l'                  ,value:'0px'},
+                { name:'--step-wrap-up-p'                  ,value:'absolute'},
+
 
             ],
         },        
@@ -121,6 +131,9 @@ export class ThemeHandler{
                 { name:'--feedback-time'                   ,value:'8s'},
                 { name:'--gmap-height'                     ,value:'400px'},
                 { name:'--gmap-width'                      ,value:'310px'},
+                { name:'--step-wrap-up-w'                  ,value:'95vw !important'},
+                { name:'--step-wrap-up-l'                  ,value:'-10px'},
+                { name:'--step-wrap-up-p'                  ,value:'relative'},
 
             ],
         }, 
@@ -142,6 +155,9 @@ export class ThemeHandler{
                 { name:'--feedback-time'                   ,value:'8s'},
                 { name:'--gmap-height'                     ,value:'500px'},
                 { name:'--gmap-width'                      ,value:'600px'},
+                { name:'--step-wrap-up-w'                  ,value:'100%'},
+                { name:'--step-wrap-up-l'                  ,value:'0px'},
+                { name:'--step-wrap-up-p'                  ,value:'absolute'},
 
             ],
         },        
@@ -165,6 +181,10 @@ export class ThemeHandler{
                 { name:'--feedback-time'                   ,value:'8s'},
                 { name:'--gmap-height'                     ,value:'400px'},
                 { name:'--gmap-width'                      ,value:'310px'},
+                { name:'--step-wrap-up-w'                  ,value:'95vw !important'},
+                { name:'--step-wrap-up-l'                  ,value:'-10px'},
+                { name:'--step-wrap-up-p'                  ,value:'relative'},
+
 
             ],
         }, 

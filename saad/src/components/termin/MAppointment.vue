@@ -92,6 +92,22 @@ export default class MAppointment extends Vue {
   public xDown:any=null;
   public yDown:any=null;
 
+  mounted(){
+    if (this.isMobile){
+      console.log("Setting the layout to the mobile now !!!!");
+      
+      let elem:any = document.querySelector('.v-stepper__wrapper');
+      //style = getComputedStyle(elem);
+      //elem.style
+      /*
+      elem.style.width = '95vw !important;';
+      elem.style.left= '-10px';
+      elem.style.position='relative';
+      */
+    }
+
+  }
+
   infoUpdated(){
     
     this.pr ++;
@@ -335,11 +351,12 @@ export default class MAppointment extends Vue {
 </script>
 
 <style >
+
+
 .v-stepper__wrapper{
-  /*border: 2px solid blue;*/
-  width:95vw !important;
-  left: -10px;
-  position: relative;
+  width: var(--step-wrap-up-w);
+  left: var(--step-wrap-up-l);
+  position: var(--step-wrap-up-p);
 }
 #control{
   display:flex;
