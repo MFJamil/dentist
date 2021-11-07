@@ -1,5 +1,5 @@
     <template>
-        <div style="width:100% !important;text-align: center;padding-left:4px;padding-right:4px;" >
+        <div ref="mainDiv" style="width:100% !important;text-align: center;padding-left:4px;padding-right:4px;" >
             <h3 class="section-title" :style="!isMobile?'padding-bottom:50px;':'font-size:14px !important;'">{{$i18n.t('txt_apt_confirm')}}</h3>
             <v-row v-if="!isMobile">
                 <v-col class="flex_middle" style=" display:flex !important;align-items:center !important;">
@@ -88,6 +88,9 @@
 
     @Component
     export default class Confirmation extends Vue {
+        $refs!:{
+            mainDiv:HTMLElement;
+        }
 
     @Prop()
     public isMobile! :boolean;
@@ -127,12 +130,24 @@
             default: return 'en-us';
         }
     }
-    
+    mounted(){
+        if (this.isMobile){
+            let parentEl = this.$refs.mainDiv.parentElement;
+            parentEl.classList.add('v-stp-up');
+            /*
+            parentEl.style.width = "95vw !important";
+            parentEl.style.position = "relative";
+            parentEl.style.left = "-10px";
+            parentEl.style.border = '1px solid black';
+            */
+        }
+
+    }
     
     }
     </script>
     
-    <style scoped>
+    <style >
         .flex_middle{
             display:flex !important;
             align-items:center !important;
@@ -156,5 +171,12 @@
         .sub_title{
             color:rgba(0, 0, 0, 0.6);
         }
-    
+        .v-stp-up{
+        width: 95vw !important;
+        left: -10px;
+        position: relative;
+        }
+
+
+
     </style>

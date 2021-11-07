@@ -28,6 +28,7 @@
 
         <v-stepper-content :step="step.val" :key="'C-' + step.val" :style="'width:100vw !important;position:relative;' + (lang=='ar'?'right:-50px;':'left:-50px;')">
             <component 
+              
               :is="step.component" 
               style="width:98vw !important;"
               @done="infoUpdated" 
