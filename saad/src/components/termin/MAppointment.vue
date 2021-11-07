@@ -14,6 +14,7 @@
         <v-stepper
           v-model="pr" 
           vertical
+          min-width="100vw"
         >
         <template v-for="step in steps" >
 
@@ -25,10 +26,10 @@
           
         </v-stepper-step>
 
-        <v-stepper-content :step="step.val" :key="'C-' + step.val">
+        <v-stepper-content :step="step.val" :key="'C-' + step.val" style="width:100vw !important;position:relative;left:-50px;">
             <component 
               :is="step.component" 
-              
+              style="width:98vw !important;"
               @done="infoUpdated" 
               @cancel="pr=step.val-1" 
               :lang="lang" 
@@ -333,7 +334,13 @@ export default class MAppointment extends Vue {
 }
 </script>
 
-<style>
+<style >
+.v-stepper__wrapper{
+  /*border: 2px solid blue;*/
+  width:95vw !important;
+  left: -10px;
+  position: relative;
+}
 #control{
   display:flex;
    align-items: center;

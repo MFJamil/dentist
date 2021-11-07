@@ -1,6 +1,6 @@
 <template>
-    <v-container  style="text-align: center;">
-        <h3 class="section-title" :style="!isMobile?'padding-bottom:50px;':'font-size:14px !important;'">{{$i18n.t('txt_apt_treatDate')}}</h3>
+    <v-container  style="width:100% !important;text-align: center;" fluid >
+        <h3 class="section-title" :style="!isMobile?'padding-bottom:50px;':'font-size:12px !important;'">{{$i18n.t('txt_apt_treatDate')}}</h3>
         
         <v-row class="fill-height">
             <v-col>
@@ -12,7 +12,8 @@
                 <v-btn
                     fab
                     text
-                    small
+                    :small="!isMobile"
+                    :x-small="isMobile"
                     color="grey darken-2"
                     @click="prev"
                 >
@@ -23,7 +24,8 @@
                 <v-btn
                     fab
                     text
-                    small
+                    :small="!isMobile"
+                    :x-small="isMobile"
                     color="grey darken-2"
                     @click="next"
                 >
@@ -31,7 +33,7 @@
                     {{lang=='ar'?'mdi-chevron-left':'mdi-chevron-right'}}
                     </v-icon>
                 </v-btn>
-                <v-toolbar-title :style="'color:' + titleColor + ';' + (isMobile?'font-size:14px !important':'')" >
+                <v-toolbar-title :style="'color:' + titleColor + ';' + (isMobile?'font-size:12px !important':'')" >
                     {{ title }} <v-icon small :style="lang=='ar'?'right:-8px;':'left:-8px;'" v-if="datesNo>0" color="green">mdi-chevron-double-down</v-icon>
                 </v-toolbar-title>
                 <v-spacer></v-spacer>

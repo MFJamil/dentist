@@ -1,7 +1,7 @@
 <template>
     <v-container  style="text-align: center;height:100%;" fluid>
 
-        <h3 class="section-title" :style="!isMobile?'padding-bottom:50px;':'font-size:14px !important;'">{{$i18n.t(message)}}</h3>
+        <h3 class="section-title" :style="!isMobile?'padding-bottom:50px;':'font-size:12px !important;'">{{$i18n.t(message)}}</h3>
             <div v-if="!isMobile" style="height:100%">
                 <v-row>
                     <v-col v-for="(opt,id) in opts" :key="id" :id="id">
@@ -10,7 +10,6 @@
                             close-delay="300"
                         >
                             <v-card
-                                
                                 :color="selectedOpt==opt.name?'primary':'white'"
                                 :elevation="hover ? 10 : 2"
                                 :class="{ 'on-hover': hover }"
@@ -42,7 +41,7 @@
                     <template v-for="opt in opts" >
                         <v-list-item 
                             :key="opt.name"
-                            :style="'border-radius:0px  10px 10px 0px;background-color:' + (selectedOpt!=opt.name?'white':'rgba(48, 109, 193,.8);')"
+                            :style="(lang!='ar'?'border-radius:0px  10px 10px 0px;':'border-radius:10px  0px 0px 10px;') + 'background-color:' + (selectedOpt!=opt.name?'white':'rgba(48, 109, 193,.8);')"
                         >
                         <v-list-item-avatar size="50" >
                             <v-img  :src="opt.pic"></v-img>

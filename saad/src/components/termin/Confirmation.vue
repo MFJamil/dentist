@@ -1,6 +1,6 @@
     <template>
-        <v-container  style="text-align: center;">
-            <h3 class="section-title" style="padding-bottom:50px;">{{$i18n.t('txt_apt_confirm')}}</h3>
+        <div style="width:100% !important;text-align: center;padding-left:4px;padding-right:4px;" >
+            <h3 class="section-title" :style="!isMobile?'padding-bottom:50px;':'font-size:14px !important;'">{{$i18n.t('txt_apt_confirm')}}</h3>
             <v-row v-if="!isMobile">
                 <v-col class="flex_middle" style=" display:flex !important;align-items:center !important;">
                     <div class="flex_middle" style="width:250px !important;">
@@ -25,28 +25,29 @@
                 </v-col>
             </v-row>
             <v-row v-if="isMobile">
-                <v-col class="flex_middle" style=" display:flex !important;align-items:center !important;">
+                <v-col class="flex_middle" style="display:flex !important;align-items:center !important;">
                     <div class="flex_middle" style="width:250px !important;">
                         <v-avatar size="80"><v-img :src="dateInfo.handler.pic"></v-img></v-avatar> 
                         <div :class="lang=='ar'?'space_10_rtl':'space_10_ltr'">
                             <span><strong>{{$i18n.t(dateInfo.handler.name)}}</strong></span> <br>
-                            <span style="color:rgba(0, 0, 0, 0.6);">{{$i18n.t(dateInfo.handler.position)}}</span>
+                            <span class="sub_title">{{$i18n.t(dateInfo.handler.position)}}</span>
                         </div>
                     </div>
                 </v-col>
             </v-row>
-            <v-row v-if="isMobile" >
-                <v-col style="align-content:left;">
-                    <v-subheader >{{$i18n.t('stp_type')}}</v-subheader>
-                    <div :class="lang=='ar'?'text-align:left;margin-right:50px;':'text-align:left;margin-left:50px;'">
-                        <v-avatar><v-img :src="dateInfo.treatment.pic"></v-img></v-avatar> 
-                        <span :class="lang=='ar'?'space_20_rtl':'space_20_ltr'"><strong>{{$i18n.t(dateInfo.treatment.name)}}</strong></span>
+            <v-row v-if="isMobile" width="100vw">
+                <v-col>
+                    <span class="sub_title">{{$i18n.t('stp_type')}}</span>
+                    <div :class="lang=='ar'?'text-align:left;margin-right:10px;':'text-align:left;margin-left:10px;'">
+                        <span style="position:relative;left:10px;font-size:12px !important;" :class="lang=='ar'?'space_20_rtl':'space_20_ltr'"><strong>{{$i18n.t(dateInfo.treatment.name)}}</strong></span>
                     </div>
                 </v-col>
                 <v-col>
-                    <v-subheader>{{$i18n.t('stp_date')}}</v-subheader>
-                    <v-icon color="primary">mdi-calendar-range</v-icon> <span :class="lang=='ar'?'space_10_rtl':'space_10_ltr'"  :style="'position:relative;left:10px;' + (isMobile?'font-size:12px !important;':'')"><strong>{{getDateValue()}}</strong></span><br>
+                    <span class="sub_title">{{$i18n.t('stp_date')}}</span>
+                    <div :class="lang=='ar'?'text-align:left;margin-right:50px;':'text-align:left;margin-left:50px;'">
+                        <span :class="lang=='ar'?'space_10_rtl':'space_10_ltr'"  style="position:relative;left:10px;font-size:12px !important;"><strong>{{getDateValue()}}</strong></span><br>
                     <v-icon color="primary">mdi-clock-time-four-outline</v-icon><span :class="lang=='ar'?'space_10_rtl':'space_10_ltr'"><strong>{{getTimeValue()}}</strong></span>
+                    </div>
                 </v-col>
             </v-row>
 
@@ -78,8 +79,7 @@
                 </v-col>
             </v-row>
 
-        </v-container>
-
+        </div>
     </template>
     
 <script  lang="ts">
@@ -152,6 +152,9 @@
         .space_20_rtl{
             position:relative;
             right:20px;
+        }
+        .sub_title{
+            color:rgba(0, 0, 0, 0.6);
         }
     
     </style>

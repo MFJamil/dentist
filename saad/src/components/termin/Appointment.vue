@@ -57,7 +57,7 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer /> 
-        <v-btn v-show="pr==steps.length" color="success">{{$i18n.t('frm_book')}}<v-icon right dark>mdi-sort-calendar-descending</v-icon></v-btn>
+        <v-btn v-show="pr==steps.length" color="success" @click="$emit('doClose',false)">{{$i18n.t('frm_book')}}<v-icon right dark>mdi-sort-calendar-descending</v-icon></v-btn>
         <v-spacer /> 
         
         <v-btn v-show="pr>1" icon :disabled="pr==1"  large @click="pr>1? pr--:1"><v-icon>{{(lang=='ar'?'mdi-arrow-right-circle':'mdi-arrow-left-circle')}}</v-icon></v-btn>
