@@ -38,11 +38,11 @@
                 </v-row>
             </div>
             <div v-else style="width:100%;">
-                  <v-list style="width:100%;" @touchstart="touchStart" @touchmove="touchMove">
+                  <v-list style="width:100%;" >
                     <template v-for="opt in opts" >
                         <v-list-item 
                             :key="opt.name"
-                            :style="'border-radius:10px;background-color:' + (selectedOpt!=opt.name?'white':'var(--v-primary-base)')"
+                            :style="'border-radius:0px  10px 10px 0px;background-color:' + (selectedOpt!=opt.name?'white':'rgba(48, 109, 193,.8);')"
                         >
                         <v-list-item-avatar size="50" >
                             <v-img  :src="opt.pic"></v-img>
@@ -85,8 +85,6 @@ export default class OptionsSlide extends Vue {
   @Prop()
   public updateField!:any;
 
-  public xDown:any=null;
-  public yDown:any=null;
 
 
   public selectedOpt='';
@@ -98,43 +96,6 @@ export default class OptionsSlide extends Vue {
     this.$emit('done', 1);
   }
 
-   touchStart(e:any){
-       //console.log("Touch Start detected ....");
-        const firstTouch = e.touches[0];                                      
-        this.xDown = firstTouch.clientX;                                      
-        this.yDown = firstTouch.clientY;          
-   }
-   touchMove(e:any){
-       //console.log("Touch Move detected ....");
-       if (this.yDown==null||this.xDown==null) return;
-        let xUp = e.touches[0].clientX;                                    
-        let yUp = e.touches[0].clientY;
-
-        let xDiff = this.xDown - xUp;
-        let yDiff = this.yDown - yUp;
-         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-            if ( xDiff > 0 ) {
-                /** Touch was to the right */
-            } else {
-                /** Touch was to the right */
-                    
-            }                       
-        } else {
-            if ( yDiff > 0 ) {
-                /** swipe down */
-                this.$emit('done', 1);
-                
-            } else { 
-                /* up swipe */
-                this.$emit('cancel', 1);
-                
-            }                                                                 
-        }
-        /* reset values */
-        this.xDown = null;
-        this.yDown = null;  
-        e.preventDefault();                                          
-   }
 
 
 }

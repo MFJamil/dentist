@@ -7,6 +7,7 @@
       outlined
       :min-height="isMobile?'99vh':'66vh'"
       :min-width="isMobile?'99vw':'60vw'"
+      
       >
       <v-progress-linear height="8px" :value="(pr/steps.length)*100"></v-progress-linear>
       <v-card-text>
@@ -92,6 +93,7 @@ export default class Appointment extends Vue {
     this.pr ++;
     console.log("Info Updated : " +  JSON.stringify(this.dateInfo,undefined,1));
   }
+
 
   public dateInfo={
     treatment:'',

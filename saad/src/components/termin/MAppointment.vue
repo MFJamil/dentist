@@ -3,6 +3,7 @@
    <v-card 
       elevation="5"
       class="mb-12"
+      @touchstart="touchStart" @touchmove="touchMove"
       >
 
     <v-progress-linear height="8px" :value="(pr/steps.length)*100"></v-progress-linear>
@@ -75,12 +76,58 @@ export default class MAppointment extends Vue {
   public isMobile! :boolean;
   @Prop()
   public lang!:string;
-  
+  public xDown:any=null;
+  public yDown:any=null;
+
   infoUpdated(){
     
     this.pr ++;
     console.log("Info Updated : " +  JSON.stringify(this.dateInfo,undefined,1));
   }
+
+       touchStart(e:any){
+       //console.log("Touch Start detected ....");
+        const firstTouch = e.touches[0];                                      
+        this.xDown = firstTouch.clientX;                                      
+        this.yDown = firstTouch.clientY;          
+   }
+   touchMove(e:any){
+       //console.log("Touch Move detected ....");
+       if (this.yDown==null||this.xDown==null) return;
+        let xUp = e.touches[0].clientX;                                    
+        let yUp = e.touches[0].clientY;
+
+        let xDiff = this.xDown - xUp;
+        let yDiff = this.yDown - yUp;
+         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+            if ( xDiff > 0 ) {
+                /** Touch was to the right */
+                console.log("Right --------");
+            } else {
+                /** Touch was to the right */
+              console.log("Left --------");
+            }                       
+        } else {
+            if ( yDiff > 0 ) {
+                /** swipe down */
+                console.log("Up --------");
+                //this.$emit('done', 1);
+                this.pr ++;
+                
+            } else { 
+                /* up swipe */
+                console.log("Down --------");
+                
+                this.pr --;
+                
+            }                                                                 
+        }
+        /* reset values */
+        this.xDown = null;
+        this.yDown = null;  
+        e.preventDefault();                                          
+   }
+
 
   public dateInfo={
     treatment:'',
