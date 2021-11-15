@@ -41,7 +41,13 @@
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <GalaryCarousel :slideOnly="isMobile" :isMobile="isMobile" :lang="lang" style="position:relative;left:-1000px;opacity:0;" shown="moveRightfadeIn"/>
+                <template v-if="isMobile">
+                    <GalaryCarousel :slideOnly="isMobile" :isMobile="isMobile" :lang="lang" style="position:relative;top:150px;opacity:0;" shown="moveUpfadeIn"/>
+                </template>
+                <template v-else>
+                    <GalaryCarousel :slideOnly="isMobile" :isMobile="isMobile" :lang="lang" style="position:relative;left:-1000px;opacity:0;" shown="moveRightfadeIn"/>
+                </template>
+
             </v-col>
         </v-row>
         <v-row>
