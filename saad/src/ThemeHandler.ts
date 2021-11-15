@@ -178,7 +178,7 @@ export class ThemeHandler{
                 { name:'--feedback-big'                    ,value:'12px'},
                 { name:'--feedback-ticker-st'              ,value:'0%'},  
                 { name:'--feedback-ticker-en'              ,value:'-500%'},                
-                { name:'--feedback-time'                   ,value:'8s'},
+                { name:'--feedback-time'                   ,value:'7800ms'},
                 { name:'--gmap-height'                     ,value:'400px'},
                 { name:'--gmap-width'                      ,value:'310px'},
                 { name:'--step-wrap-up-w'                  ,value:'95vw !important'},

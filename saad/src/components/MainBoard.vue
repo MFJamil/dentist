@@ -10,10 +10,10 @@
         </v-row>
         <v-row>
             <v-col cols="24" >
-                <Feedback :isMobile="isMobile" :lang="lang" />
+                <Feedback :isMobile="isMobile" :lang="lang"  />
             </v-col>
             <v-col>
-                <Timings :isMobile="isMobile" :lang="lang" />
+                <Timings :isMobile="isMobile" :lang="lang" style="opacity:0;" shown="fadeIn" />
             </v-col>
         </v-row>
         
@@ -22,26 +22,26 @@
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <Doctors :isMobile="isMobile" :lang="lang" />
+                <Doctors :isMobile="isMobile" :lang="lang"  style="position:relative;top:150px;opacity:0;" shown="moveUpfadeIn"/>
             </v-col>
         </v-row>
         <div style="height:150px;"></div>
         
         <v-row>
             <v-col>
-                <Services :isMobile="isMobile" :lang="lang" @action="$emit('action',$event)" />
+                <Services :isMobile="isMobile" :lang="lang" @action="$emit('action',$event)"  style="position:relative;top:150px;opacity:0;" shown="moveUpfadeIn"/>
             </v-col>
         </v-row>
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <Team  :isMobile="isMobile" :lang="lang" />
+                <Team  :isMobile="isMobile" :lang="lang"  style="position:relative;top:150px;opacity:0;" shown="moveUpfadeIn"/>
             </v-col>
         </v-row>
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <GalaryCarousel :slideOnly="isMobile" :isMobile="isMobile" :lang="lang"/>
+                <GalaryCarousel :slideOnly="isMobile" :isMobile="isMobile" :lang="lang" style="position:relative;left:-1000px;opacity:0;" shown="moveRightfadeIn"/>
             </v-col>
         </v-row>
         <v-row>
@@ -139,5 +139,29 @@ export default class MainBoard extends Vue {
 </script>
 
 <style>
+.fadeIn{
+    opacity: 1 !important;
+    transition-duration: 1500ms;
+}
+
+.moveUpfadeIn{
+    opacity: 1 !important;
+    transition-duration: 1500ms;
+    top: -150px !important;
+    position: relative;
+}
+.moveRightfadeIn{
+    opacity: 1 !important;
+    transition-duration: 2000ms;
+    left: 0px !important;
+    position: relative;
+}
+
+.moveUp{
+    top: -100px;
+    position: relative;
+
+
+}
 
 </style>
