@@ -1,5 +1,9 @@
 import Vue from 'vue';
+
 import Vuetify from 'vuetify/lib/framework';
+
+import {LoggerPlugin} from 'smyld-lib-common/dist/VueLoggerPlugin';
+Vue.use( LoggerPlugin,{cacheLogs: true});
 
 Vue.use(Vuetify, {
   options: {

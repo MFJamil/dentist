@@ -15,7 +15,9 @@
 
         <!-- If using vue-router -->
         <v-fab-transition >
-        <router-view :isMobile="isOnMobile" :lang="curLang" @action="handleAction" ></router-view>
+          <keep-alive>
+            <router-view :isMobile="isOnMobile" :lang="curLang" @action="handleAction" ></router-view>
+          </keep-alive>
         </v-fab-transition>
       </v-container>
    
@@ -53,6 +55,7 @@ import Footer from './components/Footer.vue';
 import Toolbox from './components/ToolBox.vue';
 import webUtils from './utils/WebUtils';
 import themHandler from './ThemeHandler';
+import MainLogger from 'smyld-lib-common/dist/logging/Logger';
 
 @Component({
   components: {
@@ -71,8 +74,8 @@ export default class App extends Vue{
   curLang = 'de';
   public showScrollUp = false;
   mounted(){
-    console.log("Screen Size : " + webUtils.screenSize(this));
-    console.log("Is Mobile   : " + webUtils.isMobile(this));
+    MainLogger.info("Screen Size : " + webUtils.screenSize(this));
+    MainLogger.info("Is Mobile   : " + webUtils.isMobile(this));
     this.isOnMobile = webUtils.isMobile(this);
     themHandler.activateTheme(this.isOnMobile,false,this.curLang,this);
     this.$refs.scrEl.style.right  = this.isOnMobile?'10px':'30px';
@@ -82,10 +85,10 @@ export default class App extends Vue{
     this.curLang = lang
   }
   public handleAction(item:any){
-    console.log("Handle Action called for : " + JSON.stringify(item) + " holding type " + typeof item);
+    MainLogger.info("Handle Action called for : " + JSON.stringify(item) + " holding type " + typeof item);
     if (item.action || typeof item == 'string'){
       let path = item.action?item.action:item;
-      console.log("Current path : " + this.$router.currentRoute.path + " new path: " + path);
+      MainLogger.info("Current path : " + this.$router.currentRoute.path + " new path: " + path);
       if(this.$router.currentRoute.path!=='/'+path)
         this.$router.push(path);
     }

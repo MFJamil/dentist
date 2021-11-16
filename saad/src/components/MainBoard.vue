@@ -22,7 +22,7 @@
         <div style="height:150px;"></div>
         <v-row>
             <v-col>
-                <Doctors :isMobile="isMobile" :lang="lang"  style="position:relative;top:150px;opacity:0;" shown="moveUpfadeIn"/>
+                <Doctors :isMobile="isMobile" :lang="lang"  class="itemBefore" shown="moveUpfadeIn"/>
             </v-col>
         </v-row>
         <div style="height:150px;"></div>
@@ -162,12 +162,10 @@ export default class MainBoard extends Vue {
     left: 0px !important;
     position: relative;
 }
-
-.moveUp{
-    top: -100px;
-    position: relative;
-
-
+.itemBefore{
+    position:relative;
+    top:150px;
+    opacity:0;
 }
 
 </style>
