@@ -3,9 +3,14 @@
       <!--<li class="['mr-2','em','em-flag-ae']"></li>-->
       <div id="tlbIcon" @click="handleVisibility" ><v-icon dark>{{panelIcon}}</v-icon></div>
       <div class="group"> 
-            <li class="mr-2 em em-flag-sa langItem" @click="switchLang('ar');" ></li>
+        <!--
+            <li class="mr-2 em em-flag-sa langItem" @click="switchLang('ar');" ><img src="../assets/saudi-arabia.png"  class="flagIcon" /></li>
             <li class="mr-2 em em-flag-de langItem" @click="switchLang('de');"></li>
             <li class="mr-2 em em-flag-gb langItem" @click="switchLang('en');"></li>
+            -->
+            <img src="../assets/saudi-arabia.png"  class="flagIcon"  @click="switchLang('ar');"/>
+            <img src="../assets/germany.png"  class="flagIcon"  @click="switchLang('de');"/>
+            <img src="../assets/united-kingdom.png"  class="flagIcon"  @click="switchLang('en');"/>
       </div>
       
 
@@ -92,6 +97,15 @@ export default class Toolbox extends Vue {
         left: 30px !important;
         top: 10px;
         position: absolute !important;
+        display: flex;
+
+    }
+    .flagIcon{
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      margin-right: 4px;
+      margin-left: 4px;
 
     }
     .langItem{
